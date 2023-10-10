@@ -16,7 +16,7 @@ export async function fetchTrending() {
       throw new Error(`HTTP error! Status : ${response.status}`);
     }
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     throw error;
