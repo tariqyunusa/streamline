@@ -9,7 +9,7 @@ interface movie {
 }
 
 const Hero = () => {
-  const [trending, SetTrending] = useState<movie[] | null>([]);
+  const [trending, SetTrending] = useState<movie[]>([]);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   // pull data from the API
   useEffect(() => {
@@ -23,29 +23,33 @@ const Hero = () => {
       }
     };
     fetchData();
-
+  }, []);
+  useEffect(() => {
     // update the curent movie index after every three seconds
     const intervalId = setInterval(() => {
-      setCurrentMovieIndex(
-        (prevIndex) => (prevIndex + 1) % (trending?.length || 1)
+      setCurrentMovieIndex((prevIndex) =>
+        prevIndex === trending.length - 1 ? 0 : prevIndex + 1
       );
       console.log("updated index");
-    }, 5000);
+    }, 3000);
     return () => clearInterval(intervalId);
   }, [trending]);
 
   return (
     <>
-      {trending && trending.length > 0 && (
-        <div
-          style={{
-            backgroundImage: `url('https://image.tmdb.org/t/p/original${trending[currentMovieIndex].poster_path}')`,
-          }}
-        >
-          <h1 className="text-4xl font-bold">
-            {trending[currentMovieIndex].title}
-          </h1>
-        </div>
+      <h1>Movie List</h1>
+      {trending.length > 0 ? (
+        <>
+          <p>{trending[currentMovieIndex].title}</p>
+          <Image
+            src={`https://image.tmdb.org/t/p/original${trending[currentMovieIndex].poster_path}`}
+            alt={trending[currentMovieIndex].title}
+            width={300}
+            height={200}
+          />
+        </>
+      ) : (
+        <p>Loading...</p>
       )}
     </>
   );
