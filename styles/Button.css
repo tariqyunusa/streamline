@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.custom-btn {
+  border: none;
+  outline: none;
+  background-color: #ff0040;
+  border-radius: 5px;
+  padding: 8px 15px;
+}
+span {
+  color: white;
+}

@@ -1,4 +1,5 @@
 export async function fetchTrending() {
+  const API_KEY = "f2d2ea33f720a1491e82150391a0761f";
   const url =
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
   const options = {
@@ -16,7 +17,7 @@ export async function fetchTrending() {
       throw new Error(`HTTP error! Status : ${response.status}`);
     }
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
     return json;
   } catch (error) {
     throw error;
