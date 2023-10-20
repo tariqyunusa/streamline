@@ -49,7 +49,7 @@ const Hero = () => {
             fill={true}
             className="hero_image"
           />
-          <h1 className="hero_title">{trending[currentMovieIndex].title}</h1>
+          {/* <h1 className="hero_title">{trending[currentMovieIndex].title}</h1> */}
         </div>
       ) : (
         <p>Loading...</p>

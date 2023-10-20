@@ -15,7 +15,7 @@
   height: 100%;
 }
 .hero_image {
-  filter: brightness(50%);
+  filter: brightness(25%);
   z-index: -1;
 }
 .hero_title {
