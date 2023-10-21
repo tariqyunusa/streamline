@@ -6,7 +6,7 @@ import "../styles/Nav.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Nav = () => {
-  const wrapperRef = useRef<HTMLDivElement>();
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const showBar = () => {
     wrapperRef.current?.classList.toggle("toggle-menu");
@@ -14,12 +14,13 @@ const Nav = () => {
   return (
     <>
       <nav className="nav_section">
-        <div className="logo">
-          <h1>
-            STREAM<span className="span-1">LINE</span>
-          </h1>
-        </div>
         <div className="personal_nav">
+          <div className="logo">
+            <h1>
+              STREAM<span className="span-1">LINE</span>
+            </h1>
+          </div>
+
           <div ref={wrapperRef} className="wrapper">
             <ul className="nav_ul">
               <li>Upcoming</li>

@@ -26,8 +26,10 @@
 }
 .nav_ul {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-inline: 1rem;
+  position: relative;
+  left: -5rem;
 }
 .nav_ul li {
   list-style: none;
@@ -68,6 +70,7 @@
   border: none;
   outline: none;
   display: none;
+  cursor: pointer;
 }
 .lang {
   font-size: 1rem;
@@ -76,6 +79,7 @@
 @media screen and (max-width: 425px) {
   .nav_ul {
     display: block;
+    left: 0;
   }
   .nav-end {
     display: none;

@@ -13,6 +13,8 @@
 .hero_container {
   width: 100vw;
   height: 100%;
+  display: flex;
+  align-items: center;
 }
 .hero_image {
   filter: brightness(25%);
@@ -20,6 +22,41 @@
 }
 .hero_title {
   z-index: 99;
-  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+
   font-family: "Manrope", sans-serif;
+  transition: 1s;
+}
+
+.rating {
+  gap: 1rems;
+  display: flex;
+}
+.info {
+  max-width: 450px;
+  max-height: 350px;
+  padding: 3rem;
+  color: white;
+
+  flex-wrap: wrap;
+}
+.hero_about {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  transition: 1s;
+}
+
+@media screen and (max-width: 425px) {
+  .hero_title {
+    font-size: 1.2rem;
+  }
+  .info {
+    max-width: 450px;
+    max-height: 150px;
+    padding: 1rem;
+  }
+  .hero_about {
+    font-size: 0.5rem;
+  }
 }

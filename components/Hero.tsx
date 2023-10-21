@@ -3,12 +3,24 @@ import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Hero.css";
+import { Button } from ".";
+import imdb from "../public/imdb.png";
 
 interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
+  adult: boolean;
   backdrop_path: string;
+  genre_ids: object;
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 
 const Hero = () => {
@@ -49,7 +61,23 @@ const Hero = () => {
             fill={true}
             className="hero_image"
           />
-          {/* <h1 className="hero_title">{trending[currentMovieIndex].title}</h1> */}
+          <div className="info">
+            <div className="title">
+              <h1 className="hero_title">
+                {trending[currentMovieIndex].title}
+              </h1>
+              <div className="rating">
+                <Image src={imdb} width={25} height={25} alt="icon" />
+                <h4>:{trending[currentMovieIndex].vote_average}</h4>
+              </div>
+            </div>
+
+            <p className="hero_about">{trending[currentMovieIndex].overview}</p>
+            <Button
+              title="Get Tickets"
+              containerStyle="background-color: black"
+            />
+          </div>
         </div>
       ) : (
         <p>Loading...</p>

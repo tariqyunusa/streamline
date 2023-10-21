@@ -9,7 +9,13 @@
   background-color: #ff0040;
   border-radius: 5px;
   padding: 8px 15px;
+  cursor: pointer;
 }
 span {
   color: white;
+}
+@media screen and (max-width: 425px) {
+  .custom-btn {
+    padding: 6px 13px;
+  }
 }
