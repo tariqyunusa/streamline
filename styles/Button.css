@@ -11,11 +11,17 @@
   padding: 8px 15px;
   cursor: pointer;
 }
-span {
+.span_btn{
   color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 @media screen and (max-width: 425px) {
   .custom-btn {
-    padding: 6px 13px;
+    padding: 6px 10px;
+  }
+  .custom-btn span {
+    font-size: 0.5rem;
+    font-weight: 500;
   }
 }

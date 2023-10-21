@@ -15,7 +15,7 @@
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 3rem;
   align-items: center;
 }
 .logo h1 {
@@ -33,10 +33,11 @@
 }
 .nav_ul li {
   list-style: none;
-  font-size: 0.85rem;
+  font-size: 0.55rem;
   color: white;
   font-weight: 500;
   cursor: pointer;
+  text-transform: uppercase;
 }
 .wrapper {
   width: 30%;
@@ -73,7 +74,7 @@
   cursor: pointer;
 }
 .lang {
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 800;
 }
 @media screen and (max-width: 425px) {

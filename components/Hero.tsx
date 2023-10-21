@@ -3,7 +3,7 @@ import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Hero.css";
-import { Button } from ".";
+import { Button, Latest } from ".";
 import imdb from "../public/imdb.png";
 
 interface Movie {
@@ -82,6 +82,9 @@ const Hero = () => {
       ) : (
         <p>Loading...</p>
       )}
+      <section className="latest-section">
+        <Latest />
+      </section>
     </div>
   );
 };
