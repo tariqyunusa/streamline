@@ -81,10 +81,8 @@ const Hero = () => {
         </div>
       ) : (
         <p>Loading...</p>
-      )}
-      <section className="latest-section">
-        <Latest />
-      </section>
+      )}{" "}
+      <Latest />
     </div>
   );
 };

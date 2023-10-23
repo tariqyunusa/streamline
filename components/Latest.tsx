@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import "../styles/Latest.css";
 import { fetchTrending } from "@/utilis";
 import Image from "next/image";
-interface fetch {
+import { Dropdown } from ".";
+
+interface FetchItem {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: object;
+  genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
@@ -21,27 +23,43 @@ interface fetch {
 }
 
 const Latest = () => {
-  const [fetch, setFetch] = useState<fetch[]>([]);
+  const [fetchData, setFetchData] = useState<FetchItem[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchTrending();
-        setFetch(data.results);
-        console.log(data);
+        setFetchData(data.results);
       } catch (error) {
         console.error("Failed To Fetch Data", error);
       }
     };
     fetchData();
   }, []);
-  const limitedFetch = fetch.slice(0, 8);
+
+  const limitedFetch = fetchData.slice(0, 8);
+
+  const handleDropdownChange = (selectedValue: number) => {
+    setSelectedGenre(selectedValue);
+  };
+
+  const filteredMovies = selectedGenre
+    ? fetchData.filter((item) => item.genre_ids.includes(selectedGenre))
+    : limitedFetch;
+
   return (
     <>
       <div className="latest-wrapper">
-        <h1 className="header_latest">Opening This Week</h1>
+        <div className="header-wrapper">
+          <h1 className="latest_header">Opening This Week</h1>
+          <div className="filters">
+            <Dropdown onChange={handleDropdownChange} />
+          </div>
+        </div>
 
         <div className="cards">
-          {limitedFetch.map((item) => (
+          {filteredMovies.map((item) => (
             <div className="card" key={item.id}>
               <div className="card-img">
                 <Image
@@ -56,6 +74,10 @@ const Latest = () => {
             </div>
           ))}
         </div>
+
+        {selectedGenre && (
+          <div className="selected-genre">Selected Genre: {selectedGenre}</div>
+        )}
       </div>
     </>
   );
