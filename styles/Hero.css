@@ -15,6 +15,7 @@
   height: 100%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .hero_image {
   filter: brightness(25%);

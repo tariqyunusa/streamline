@@ -67,7 +67,14 @@ const Hero = () => {
                 {trending[currentMovieIndex].title}
               </h1>
               <div className="rating">
-                <Image src={imdb} width={25} height={25} alt="icon" />
+                <Image
+                  src={imdb}
+                  width={25}
+                  height={25}
+                  alt="icon"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={true}
+                />
                 <h4>:{trending[currentMovieIndex].vote_average}</h4>
               </div>
             </div>

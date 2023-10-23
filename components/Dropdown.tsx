@@ -1,19 +1,20 @@
+// Dropdown.tsx
 "use client";
-import { Menu } from "@headlessui/react";
-import "../styles/Dropdown.css";
-import { FiChevronDown } from "react-icons/fi";
-import { getGenre } from "@/utilis";
 import { useEffect, useState } from "react";
+import { getGenre } from "@/utilis";
+
 interface genre {
   id: number;
   name: string;
 }
+
 interface DropdownProps {
   onChange: (selectedValue: number) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
   const [genres, setGenres] = useState<genre[]>([]);
+
   useEffect(() => {
     const fetchGenres = async () => {
       try {
@@ -33,8 +34,19 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     fetchGenres();
   }, []);
 
+  const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = parseInt(event.target.value, 10);
+    console.log("Selected Genre Value:", selectedValue);
+    onChange(selectedValue);
+  };
+
   return (
-    <select name="Select Genre" id="" className="select">
+    <select
+      name="Select Genre"
+      id=""
+      className="select"
+      onChange={handleGenreChange}
+    >
       {genres ? (
         genres.map((item) => (
           <option value={item.id} key={item.id}>
@@ -47,4 +59,5 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     </select>
   );
 };
+
 export default Dropdown;

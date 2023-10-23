@@ -1,7 +1,8 @@
+// Latest.js
 "use client";
 import React, { useEffect, useState } from "react";
 import "../styles/Latest.css";
-import { fetchTrending } from "@/utilis";
+import { fetchTrending, getGenre } from "@/utilis";
 import Image from "next/image";
 import { Dropdown } from ".";
 
@@ -22,23 +23,40 @@ interface FetchItem {
   vote_count: number;
 }
 
+interface Genre {
+  id: number;
+  name: string;
+}
+
 const Latest = () => {
   const [fetchData, setFetchData] = useState<FetchItem[]>([]);
+  const [genres, setGenres] = useState<Genre[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMovies = async () => {
       try {
-        const data = await fetchTrending();
-        setFetchData(data.results);
+        const movies = await fetchTrending();
+        setFetchData(movies.results);
       } catch (error) {
-        console.error("Failed To Fetch Data", error);
+        console.error("Failed to fetch movies", error);
       }
     };
-    fetchData();
+
+    const fetchGenres = async () => {
+      try {
+        const genreData = await getGenre();
+        setGenres(genreData.genres);
+      } catch (error) {
+        console.error("Failed to fetch genres", error);
+      }
+    };
+
+    fetchMovies();
+    fetchGenres();
   }, []);
 
-  const limitedFetch = fetchData.slice(0, 8);
+  const limitedMovies = fetchData.slice(0, 8);
 
   const handleDropdownChange = (selectedValue: number) => {
     setSelectedGenre(selectedValue);
@@ -46,7 +64,8 @@ const Latest = () => {
 
   const filteredMovies = selectedGenre
     ? fetchData.filter((item) => item.genre_ids.includes(selectedGenre))
-    : limitedFetch;
+    : limitedMovies;
+  const slicedFilterededMovies = filteredMovies.slice(0, 8);
 
   return (
     <>
@@ -58,25 +77,25 @@ const Latest = () => {
           </div>
         </div>
 
-        <div className="cards">
-          {filteredMovies.map((item) => (
-            <div className="card" key={item.id}>
-              <div className="card-img">
-                <Image
-                  src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                  fill={true}
-                  alt={item.title}
-                />
+        {selectedGenre !== null && selectedGenre !== undefined ? (
+          <div className="cards">
+            {slicedFilterededMovies.map((item) => (
+              <div className="card" key={item.id}>
+                <div className="card-img">
+                  <Image
+                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                    fill={true}
+                    alt={item.title}
+                  />
+                </div>
+                <div className="card-details">
+                  <h3 className="card-title">{item.original_title}</h3>
+                </div>
               </div>
-              <div className="card-details">
-                <h3 className="card-title">{item.original_title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {selectedGenre && (
-          <div className="selected-genre">Selected Genre: {selectedGenre}</div>
+            ))}
+          </div>
+        ) : (
+          <p>No movies for the selected Genre this week.</p>
         )}
       </div>
     </>
