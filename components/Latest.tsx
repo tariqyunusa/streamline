@@ -38,6 +38,7 @@ const Latest = () => {
       try {
         const movies = await fetchTrending();
         setFetchData(movies.results);
+        console.log(movies.results);
       } catch (error) {
         console.error("Failed to fetch movies", error);
       }
@@ -71,7 +72,7 @@ const Latest = () => {
     <>
       <div className="latest-wrapper">
         <div className="header-wrapper">
-          <h1 className="latest_header">Opening This Week</h1>
+          <h1 className="latest_header">New Features</h1>
           <div className="filters">
             <Dropdown onChange={handleDropdownChange} />
           </div>
@@ -90,6 +91,7 @@ const Latest = () => {
                 </div>
                 <div className="card-details">
                   <h3 className="card-title">{item.original_title}</h3>
+                  <p className="card-date">Release Date: {item.release_date}</p>
                 </div>
               </div>
             ))}
@@ -97,6 +99,7 @@ const Latest = () => {
         ) : (
           <p>No movies for the selected Genre this week.</p>
         )}
+        <hr className="hr" />
       </div>
     </>
   );

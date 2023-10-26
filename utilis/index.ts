@@ -3,7 +3,7 @@ import { log } from "console";
 export async function fetchTrending() {
   const API_KEY = "f2d2ea33f720a1491e82150391a0761f";
   const url =
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
+    "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
   const options = {
     method: "GET",
     headers: {
