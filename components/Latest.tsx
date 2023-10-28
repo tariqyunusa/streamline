@@ -66,7 +66,8 @@ const Latest = () => {
   const filteredMovies = selectedGenre
     ? fetchData.filter((item) => item.genre_ids.includes(selectedGenre))
     : limitedMovies;
-  const slicedFilterededMovies = filteredMovies.slice(0, 8);
+
+  const slicedFilteredMovies = filteredMovies.slice(0, 8);
 
   return (
     <>
@@ -78,9 +79,9 @@ const Latest = () => {
           </div>
         </div>
 
-        {selectedGenre !== null && selectedGenre !== undefined ? (
+        {filteredMovies.length > 0 ? (
           <div className="cards">
-            {slicedFilterededMovies.map((item) => (
+            {slicedFilteredMovies.map((item) => (
               <div className="card" key={item.id}>
                 <div className="card-img">
                   <Image
@@ -97,7 +98,11 @@ const Latest = () => {
             ))}
           </div>
         ) : (
-          <p>No movies for the selected Genre this week.</p>
+          <div className="latest_paragraph">
+            {selectedGenre
+              ? "No movies for the selected Genre this week."
+              : "Displaying limited movies for this week."}
+          </div>
         )}
         <hr className="hr" />
       </div>
