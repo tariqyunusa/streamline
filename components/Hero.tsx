@@ -3,7 +3,7 @@ import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Hero.css";
-import { Button, Latest } from ".";
+import { Button, Latest, Search } from ".";
 import imdb from "../public/imdb.png";
 
 interface Movie {
@@ -80,16 +80,14 @@ const Hero = () => {
             </div>
 
             <p className="hero_about">{trending[currentMovieIndex].overview}</p>
-            <Button
-              title="Get Tickets"
-              containerStyle="background-color: black"
-            />
+            <Button title="Get Tickets" />
           </div>
         </div>
       ) : (
         <p>Loading...</p>
-      )}{" "}
+      )}
       <Latest />
+      <Search />
     </div>
   );
 };

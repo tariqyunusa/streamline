@@ -1,0 +1,13 @@
+#search {
+  width: 150px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
+
+.searchbar-wrapper {
+  display: flex;
+  gap: 0.2rem;
+}
