@@ -56,7 +56,7 @@ const Latest = () => {
     fetchGenres();
   }, []);
 
-  const limitedMovies = fetchData.slice(0, 8);
+  const limitedMovies = fetchData.slice(0, 6);
 
   const handleDropdownChange = (selectedValue: number) => {
     setSelectedGenre(selectedValue);

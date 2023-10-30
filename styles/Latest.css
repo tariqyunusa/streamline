@@ -12,7 +12,7 @@
   /* overflow: hidden; */
 }
 .cards {
-  width: 90vw;
+  width: 90%;
 
   display: grid;
   gap: 1rem;

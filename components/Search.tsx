@@ -4,6 +4,7 @@ import "../styles/search.css";
 import { SearchBar, Button } from ".";
 import { searchFilms } from "@/utilis";
 import Image from "next/image";
+import imdb from "../public/imdb.png";
 interface searchProp {
   adult: boolean;
   backdrop_path: string;
@@ -55,7 +56,7 @@ const Search = () => {
               Got a particular movie in mind?
             </h2>
             <p className="ref-p">
-              search through our library and get tickets to watch your favorite
+              earch through our library and get tickets to watch your favorite
               movies
             </p>
           </div>
@@ -80,11 +81,25 @@ const Search = () => {
                       alt={movie.title}
                     />
                   </div>
-                  <div className="card-details">
-                    <h3 className="card-title">{movie.original_title}</h3>
-                    <p className="card-date">
-                      Release Date: {movie.vote_average}
-                    </p>
+                  <div className="card-details search-details">
+                    <h3 className="card-title search-title">
+                      {movie.original_title}
+                    </h3>
+                    <div className="search-rating-container">
+                      <div className="imdb-fill">
+                        <Image
+                          src={imdb}
+                          fill={true}
+                          alt="icon"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={true}
+                        />
+                      </div>
+                      <h6>:</h6>
+                      <p className="card-date search-average">
+                        {movie.vote_average}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
