@@ -9,6 +9,8 @@
   display: flex;
   z-index: 9999;
   position: sticky;
+  background: #0e1014;
+  align-items: center;
 }
 .personal_nav {
   display: flex;
@@ -95,7 +97,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: black;
+    background-color: #0e1014;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -104,12 +106,7 @@
     transition: 1s;
     transform: translate(-100vh);
   }
-  .logo {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 1rem;
-  }
+
   .times {
     position: absolute;
     top: 0;
@@ -121,5 +118,8 @@
   }
   .bars {
     margin: 1rem;
+  }
+  .personal_nav {
+    padding: 1rem 1rem;
   }
 }

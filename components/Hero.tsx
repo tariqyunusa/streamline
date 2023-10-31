@@ -86,8 +86,6 @@ const Hero = () => {
       ) : (
         <p>Loading...</p>
       )}
-      <Latest />
-      <Search />
     </div>
   );
 };

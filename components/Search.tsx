@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import "../styles/search.css";
-import { SearchBar, Button } from ".";
+import { SearchBar, Button, Footer } from ".";
 import { searchFilms } from "@/utilis";
 import Image from "next/image";
 import imdb from "../public/imdb.png";
@@ -56,7 +56,7 @@ const Search = () => {
               Got a particular movie in mind?
             </h2>
             <p className="ref-p">
-              earch through our library and get tickets to watch your favorite
+              Search through our library and get tickets to watch your favorite
               movies
             </p>
           </div>
@@ -68,7 +68,7 @@ const Search = () => {
         <div className="search_body">
           {searchMovie === "" ? (
             <div className="no-result">
-              <h1>search for your favourite movies</h1>
+              <h1>Search for your favourite movies</h1>
             </div>
           ) : (
             <div className="result">

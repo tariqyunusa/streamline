@@ -7,6 +7,7 @@
   width: 100vw;
   height: auto;
   background-color: #0e1014;
+  /* margin-bottom: 2rem; */
 }
 .search_header {
   width: 95vw;
@@ -32,7 +33,7 @@
 }
 .result {
   width: 100vw;
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1rem 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,6 +43,7 @@
 }
 .no-result {
   width: 100%;
+  height: 70vh;
   padding: 5rem;
   color: white;
 }

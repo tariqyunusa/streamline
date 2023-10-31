@@ -72,7 +72,12 @@ const Latest = () => {
     <>
       <div className="latest-wrapper">
         <div className="header-wrapper">
-          <h1 className="latest_header">New Features</h1>
+          <div>
+            <h1 className="latest_header">New Features</h1>
+            <p className="latest-p">
+              Displaying random movies until you select a genre
+            </p>
+          </div>
           <div className="filters">
             <Dropdown onChange={handleDropdownChange} />
           </div>
