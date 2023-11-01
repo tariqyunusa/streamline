@@ -4,6 +4,7 @@ import { ImSearch } from "react-icons/im";
 import { Button } from ".";
 import "../styles/Nav.css";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Link from "next/link";
 
 const Nav = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -23,10 +24,18 @@ const Nav = () => {
 
           <div ref={wrapperRef} className="wrapper">
             <ul className="nav_ul">
-              <li>Upcoming</li>
-              <li>Movies</li>
-              <li>Events</li>
-              <li>Contact</li>
+              <Link href="./" className="li">
+                Upcoming
+              </Link>
+              <Link href="./" className="li">
+                Movies
+              </Link>
+              <Link href="./" className="li">
+                Events
+              </Link>
+              <Link href="./" className="li">
+                Contact
+              </Link>
             </ul>
             <button className="btn-nav times" onClick={showBar}>
               <FaTimes />

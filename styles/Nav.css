@@ -8,8 +8,10 @@
   height: 10vh;
   display: flex;
   z-index: 9999;
-  position: sticky;
-  background: #0e1014;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #090e0d;
   align-items: center;
 }
 .personal_nav {
@@ -19,6 +21,7 @@
   justify-content: space-between;
   padding: 1rem 3rem;
   align-items: center;
+  z-index: 9999;
 }
 .logo h1 {
   color: white;
@@ -33,13 +36,14 @@
   position: relative;
   left: -5rem;
 }
-.nav_ul li {
+.nav_ul .li {
   list-style: none;
   font-size: 0.55rem;
   color: white;
   font-weight: 500;
   cursor: pointer;
   text-transform: uppercase;
+  text-decoration: none;
 }
 .wrapper {
   width: 30%;
@@ -79,9 +83,10 @@
   font-size: 0.5rem;
   font-weight: 800;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .nav_ul {
-    display: block;
+    display: flex;
+    flex-direction: column;
     left: 0;
   }
   .nav-end {
@@ -97,7 +102,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #0e1014;
+    background-color: #090e0d;
     width: 100vw;
     height: 100vh;
     display: flex;

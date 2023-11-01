@@ -8,16 +8,18 @@
   height: 200vh;
   background-color: #0e1014;
   padding: 0.5rem;
+  z-index: -1;
   color: #fff;
   /* overflow: hidden; */
 }
 .cards {
-  width: 90%;
+  width: 100%;
 
   display: grid;
   gap: 1rem;
   height: auto;
   padding: 1rem;
+  flex-wrap: wrap;
   grid-template-columns: repeat(4, 1fr);
 }
 .card {
@@ -66,14 +68,15 @@
   left: -1rem;
   margin: auto;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   .cards {
     /* display: flex;
     flex-direction: column; */
     grid-template-columns: repeat(2, 1fr);
     padding: 0;
+
     gap: 0;
-    width: 100vw;
+    /* width: 100vw; */
   }
   .card {
     width: 8rem;
@@ -89,6 +92,7 @@
   }
   .card-title {
     margin-top: 0.2rem;
+    font-size: 0.8rem;
   }
   .card-date {
     font-size: 6px;
