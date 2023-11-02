@@ -5,5 +5,5 @@ export interface CustomButtonProp {
 
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
-  onClick?: MouseEventHandler;
+  onClick?: ()=> void
 }

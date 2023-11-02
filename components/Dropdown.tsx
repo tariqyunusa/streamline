@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     const fetchGenres = async () => {
       try {
         const data = await getGenre();
-        console.log("Full response from getGenre:", data);
+        // console.log("Full response from getGenre:", data);
 
         if (data && data.genres) {
           setGenres(data.genres);
@@ -36,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
 
   const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = parseInt(event.target.value, 10);
-    console.log("Selected Genre Value:", selectedValue);
+    // console.log("Selected Genre Value:", selectedValue);
     onChange(selectedValue);
   };
 

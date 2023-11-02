@@ -3,7 +3,7 @@ import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Hero.css";
-import { Button, Latest, Search } from ".";
+import { Button, Modal } from ".";
 import imdb from "../public/imdb.png";
 
 interface Movie {
@@ -26,8 +26,8 @@ interface Movie {
 const Hero = () => {
   const [trending, setTrending] = useState<Movie[]>([]);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // fetch data from the API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,7 +41,6 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    // update the current movie index after every three seconds
     const intervalId = setInterval(() => {
       setCurrentMovieIndex((prevIndex) =>
         prevIndex === trending.length - 1 ? 0 : prevIndex + 1
@@ -50,6 +49,16 @@ const Hero = () => {
 
     return () => clearInterval(intervalId);
   }, [trending]);
+
+  const openModal = () => {
+    console.log("modal opened");
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    console.log("modal closed");
+  };
 
   return (
     <div className="hero">
@@ -80,7 +89,8 @@ const Hero = () => {
             </div>
 
             <p className="hero_about">{trending[currentMovieIndex].overview}</p>
-            <Button title="Get Tickets" />
+            <Button title="Get Tickets" onClick={openModal} />
+            {isOpen ? <Modal isOpen={isOpen} onClose={closeModal} /> : ""}
           </div>
         </div>
       ) : (

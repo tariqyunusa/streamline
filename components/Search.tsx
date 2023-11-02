@@ -30,14 +30,11 @@ const Search = () => {
     setSearchMovie(value);
   };
 
-  const handleSearchClick = () => {
-    console.log("Searching for:", searchMovie);
-  };
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await searchFilms(searchMovie);
-        console.log("showing results for", data);
+        // console.log("showing results for", data);
         setResult(data.results);
       } catch (error) {
         throw error;

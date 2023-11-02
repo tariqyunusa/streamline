@@ -37,7 +37,7 @@ const Latest = () => {
       try {
         const movies = await fetchTrending();
         setFetchData(movies.results);
-        console.log(movies.results);
+        // console.log(movies.results);
       } catch (error) {
         console.error("Failed to fetch movies", error);
       }
