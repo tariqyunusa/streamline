@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: #090e0d;
+  background: transparent;
   align-items: center;
 }
 .personal_nav {
@@ -126,5 +126,10 @@
   }
   .personal_nav {
     padding: 1rem 1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .logo h1 {
+    font-size: 2rem;
   }
 }

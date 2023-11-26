@@ -23,16 +23,20 @@
 }
 .hero_title {
   z-index: 99;
-  font-size: 1.5rem;
+  font-size: 3rem;
+  letter-spacing: 0.5px;
   margin-bottom: 0.2rem;
 
-  font-family: "Manrope", sans-serif;
+  font-family: "bebas neue", sans-serif;
   transition: 1s;
 }
-
+.voter_average_rating {
+  padding-left: 2px;
+  font-size: 1rem;
+}
 .rating {
-  gap: 1rems;
   display: flex;
+  font-family: "bebas neue", sans-serif;
 }
 .info {
   max-width: 450px;
@@ -54,7 +58,7 @@
 }
 @media screen and (max-width: 425px) {
   .hero_title {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }
   .info {
     max-width: 450px;

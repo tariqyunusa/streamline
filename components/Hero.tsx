@@ -69,6 +69,7 @@ const Hero = () => {
             alt={trending[currentMovieIndex].title}
             fill={true}
             className="hero_image"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="info">
             <div className="title">
@@ -76,19 +77,24 @@ const Hero = () => {
                 {trending[currentMovieIndex].title}
               </h1>
               <div className="rating">
-                <Image
+                {/* <Image
                   src={imdb}
-                  width={25}
+                  width={35}
                   height={25}
                   alt="icon"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={true}
-                />
-                <h4>:{trending[currentMovieIndex].vote_average}</h4>
+                /> */}
+                IMDB RATING
+                <h4>
+                  :{" "}
+                  <span className="voter_average_rating">
+                    {trending[currentMovieIndex].vote_average}
+                  </span>{" "}
+                </h4>
               </div>
             </div>
 
-            <p className="hero_about">{trending[currentMovieIndex].overview}</p>
             <Button title="Get Tickets" onClick={openModal} />
             {isOpen ? <Modal isOpen={isOpen} onClose={closeModal} /> : ""}
           </div>
