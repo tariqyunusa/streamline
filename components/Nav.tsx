@@ -24,7 +24,7 @@ const Nav = () => {
 
           <div ref={wrapperRef} className="wrapper">
             <ul className="nav_ul">
-              <Link href="./" className="li">
+              <Link href="/." className="li">
                 Upcoming
               </Link>
               <Link href="./" className="li">
