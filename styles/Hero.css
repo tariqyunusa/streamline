@@ -40,8 +40,8 @@
   font-family: "bebas neue", sans-serif;
 }
 .info {
-  max-width: 50vw;
-  max-height: 50vh;
+  width: 70vw;
+  height: 50vh;
   padding: 3rem;
   color: white;
 

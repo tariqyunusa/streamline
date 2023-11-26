@@ -94,7 +94,7 @@ const Hero = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={true}
                 /> */}
-                IMDB RATING
+                TMDB RATING
                 <h4>
                   :{" "}
                   <span className="voter_average_rating">

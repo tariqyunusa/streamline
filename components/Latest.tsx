@@ -82,32 +82,36 @@ const Latest = () => {
             <Dropdown onChange={handleDropdownChange} />
           </div>
         </div>
+        <div className="cards_container">
+          {filteredMovies.length > 0 ? (
+            <div className="cards">
+              {slicedFilteredMovies.map((item) => (
+                <div className="card" key={item.id}>
+                  <div className="card-img">
+                    <Image
+                      src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                      fill={true}
+                      alt={item.title}
+                    />
+                  </div>
+                  <div className="card-details">
+                    <h3 className="card-title">{item.original_title}</h3>
+                    <p className="card-date">
+                      Release Date: {item.release_date}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="latest_paragraph">
+              {selectedGenre
+                ? "No movies for the selected Genre this week."
+                : "Displaying limited movies for this week."}
+            </div>
+          )}
+        </div>
 
-        {filteredMovies.length > 0 ? (
-          <div className="cards">
-            {slicedFilteredMovies.map((item) => (
-              <div className="card" key={item.id}>
-                <div className="card-img">
-                  <Image
-                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                    fill={true}
-                    alt={item.title}
-                  />
-                </div>
-                <div className="card-details">
-                  <h3 className="card-title">{item.original_title}</h3>
-                  <p className="card-date">Release Date: {item.release_date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="latest_paragraph">
-            {selectedGenre
-              ? "No movies for the selected Genre this week."
-              : "Displaying limited movies for this week."}
-          </div>
-        )}
         <hr className="hr" />
       </div>
     </>

@@ -26,7 +26,7 @@
   width: 12rem;
   height: 18rem;
 
-  padding: 1.3rem 1rem;
+  padding: 1.3rem 0.8rem;
   overflow: hidden;
   cursor: pointer;
 }
@@ -37,6 +37,9 @@
 }
 .latest_paragraph {
   margin-left: 2.2rem;
+}
+.latest_header {
+  font-family: bebas neue;
 }
 .card-title {
   font-family: bebas neue;
@@ -71,30 +74,21 @@
 }
 @media screen and (max-width: 768px) {
   .cards {
-    /* display: flex;
-    flex-direction: column; */
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
     margin-left: 0;
+    width: 95%;
     gap: 0;
-    /* width: 100vw; */
   }
   .card {
-    width: 8rem;
-    height: 12em;
+    width: 12rem;
+    height: 15em;
   }
-  .header-wrapper {
-    margin: 1rem 0.5rem;
-    padding: 0;
-    width: 100%;
-  }
+
   h1 {
     font-size: 1rem;
   }
-  .card-title {
-    margin-top: 0.2rem;
-    font-size: 0.8rem;
-  }
+
   .card-date {
     font-size: 6px;
   }
@@ -106,10 +100,36 @@
   .latest-p {
     font-size: 0.3rem;
   }
+  .cards_container {
+    width: 100%;
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .latest_header {
+    font-size: 3rem;
+  }
+  .latest-p {
+    font-size: 1rem;
+  }
+  .card-title {
+    font-size: 1.3rem;
+    margin-top: 0.2rem;
+  }
+  .latest-wrapper {
+    height: 150vh;
+  }
+  .header-wrapper {
+    width: 90%;
+  }
+  .card-date {
+    font-size: 0.5rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {
-    height: 100vh;
+    height: 120vh;
   }
   .cards {
     width: 100%;
@@ -117,5 +137,19 @@
   }
   .card-title {
     font-size: 1.5rem;
+  }
+  .cards_container {
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    width: 18rem;
+    height: 24rem;
+  }
+  .header-wrapper {
+    width: 98%;
   }
 }
