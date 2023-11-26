@@ -27,6 +27,7 @@ const Hero = () => {
   const [trending, setTrending] = useState<Movie[]>([]);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [nextMovieIndex, setNextMovieIndex] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +49,14 @@ const Hero = () => {
     }, 3000);
 
     return () => clearInterval(intervalId);
+  }, [trending]);
+  useEffect(() => {
+    const nexInterval = setInterval(() => {
+      setNextMovieIndex((prev) =>
+        prev === trending.length - 1 ? 0 : prev + 2
+      );
+    }, 3000);
+    return () => clearInterval(nexInterval);
   }, [trending]);
 
   const openModal = () => {

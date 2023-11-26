@@ -15,7 +15,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 .hero_image {
   filter: brightness(25%);
@@ -33,14 +33,15 @@
 .voter_average_rating {
   padding-left: 2px;
   font-size: 1rem;
+  font-family: "bebas neue", sans-serif;
 }
 .rating {
   display: flex;
   font-family: "bebas neue", sans-serif;
 }
 .info {
-  max-width: 450px;
-  max-height: 350px;
+  max-width: 50vw;
+  max-height: 50vh;
   padding: 3rem;
   color: white;
 
@@ -67,5 +68,17 @@
   }
   .hero_about {
     font-size: 0.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero_title {
+    font-size: 7.5rem;
+  }
+  .rating {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .voter_average_rating {
+    font-family: bebas neue;
   }
 }
