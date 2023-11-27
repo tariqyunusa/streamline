@@ -68,11 +68,27 @@
 .hr {
   position: relative;
   top: 5rem;
-  width: 90%;
-  left: -1rem;
+  width: 94%;
+
   margin: auto;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 425px) {
+  .latest_header {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  .latest-p {
+    font-size: 0.5rem;
+  }
+  .header-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-inline: 1rem;
+  }
+  .filters {
+    width: 7rem;
+  }
   .cards {
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
@@ -81,11 +97,36 @@
     gap: 0;
   }
   .card {
-    width: 12rem;
-    height: 15em;
+    width: 7rem;
+    height: 12em;
+  }
+  .card-date {
+    font-size: 0.4rem;
+  }
+  .card-title {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 375px) {
+  /* .card {
+    width: 5rem;
+    height: 11em;
+  } */
+}
+@media screen and (min-width: 768px) {
+  /* .cards {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    margin-left: 0;
+    width: 95%;
+    gap: 0;
+  } */
+  .card {
+    width: 10rem;
+    height: 13em;
   }
 
-  h1 {
+  /* h1 {
     font-size: 1rem;
   }
 
@@ -125,7 +166,7 @@
   }
   .card-date {
     font-size: 0.5rem;
-  }
+  } */
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {
@@ -146,10 +187,17 @@
     justify-content: center;
   }
   .card {
-    width: 18rem;
-    height: 24rem;
+    width: 11rem;
+    height: 14em;
   }
   .header-wrapper {
     width: 98%;
+  }
+  .card-date {
+    font-size: 6px;
+  }
+  .card-title {
+    font-size: 1.3rem;
+    margin-top: 0.2rem;
   }
 }
