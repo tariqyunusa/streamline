@@ -78,7 +78,7 @@ const Hero = () => {
             alt={trending[currentMovieIndex].title}
             fill={true}
             className="hero_image"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="info">
             <div className="title">
@@ -94,17 +94,19 @@ const Hero = () => {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={true}
                 /> */}
-                TMDB RATING
+
                 <h4>
-                  :{" "}
+                  {" "}
+                  TMDB RATING:
                   <span className="voter_average_rating">
                     {trending[currentMovieIndex].vote_average}
-                  </span>{" "}
+                  </span>
                 </h4>
               </div>
             </div>
-
-            <Button title="Get Tickets" onClick={openModal} />
+            <div className="hero_btn">
+              <Button title="Get Tickets" onClick={openModal} />
+            </div>
             {isOpen ? <Modal isOpen={isOpen} onClose={closeModal} /> : ""}
           </div>
         </div>

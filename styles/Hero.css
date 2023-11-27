@@ -73,12 +73,18 @@
 @media screen and (min-width: 1024px) {
   .hero_title {
     font-size: 7.5rem;
+    line-height: 7rem;
   }
   .rating {
     font-size: 2rem;
+    padding-right: 2px;
     font-weight: 500;
   }
   .voter_average_rating {
     font-family: bebas neue;
+    font-size: 2rem;
+  }
+  .hero_btn {
+    margin-top: 4px;
   }
 }
