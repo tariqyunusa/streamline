@@ -5,7 +5,7 @@
 }
 .latest-wrapper {
   width: 100vw;
-  height: 200vh;
+  height: 180vh;
   background-color: #0e1014;
   padding: 0.5rem;
   z-index: -1;
@@ -170,10 +170,10 @@
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {
-    height: 120vh;
+    height: 110vh;
   }
   .cards {
-    width: 100%;
+    width: 94%;
     padding: 0;
   }
   .card-title {
@@ -187,8 +187,8 @@
     justify-content: center;
   }
   .card {
-    width: 11rem;
-    height: 14em;
+    width: 13rem;
+    height: 18rem;
   }
   .header-wrapper {
     width: 98%;

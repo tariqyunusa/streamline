@@ -8,7 +8,7 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
       <Latest />
-      {/* <Search /> */}
+      <Search />
     </main>
   );
 }
