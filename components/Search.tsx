@@ -65,7 +65,9 @@ const Search = () => {
         <div className="search_body">
           {searchMovie === "" ? (
             <div className="no-result">
-              <h1>Search for your favourite movies</h1>
+              <h1 className="no-result-type">
+                Search for your favourite movies
+              </h1>
             </div>
           ) : (
             <div className="result">
