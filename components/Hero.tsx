@@ -28,6 +28,9 @@ const Hero = () => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [nextMovieIndex, setNextMovieIndex] = useState(1);
+  const newRating = trending.map(
+    (movie) => Math.round(movie.vote_average * 10) / 10
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -99,7 +102,7 @@ const Hero = () => {
                   {" "}
                   TMDB RATING:
                   <span className="voter_average_rating">
-                    {trending[currentMovieIndex].vote_average}
+                    {newRating[currentMovieIndex]}
                   </span>
                 </h4>
               </div>

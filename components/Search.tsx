@@ -25,6 +25,12 @@ interface searchProp {
 const Search = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [result, setResult] = useState<searchProp[]>([]);
+  const newRatin = result.map((movie) => {
+    // Use Math.round to round to the nearest integer
+    const roundedRating = Math.round(movie.vote_average * 10) / 10;
+    // Use toFixed(1) to ensure one decimal place
+    return roundedRating.toFixed(1);
+  });
 
   const handleSearchChange = (value: string) => {
     setSearchMovie(value);
@@ -71,7 +77,7 @@ const Search = () => {
             </div>
           ) : (
             <div className="result">
-              {slicedSearch.map((movie) => (
+              {slicedSearch.map((movie, index) => (
                 <div className="card result-card" key={movie.id}>
                   <div className="card-img">
                     <Image
@@ -96,7 +102,7 @@ const Search = () => {
                       </div>
                       <h6>:</h6>
                       <p className="card-date search-average">
-                        {movie.vote_average}
+                        {newRatin[index]}
                       </p>
                     </div>
                   </div>
