@@ -18,6 +18,8 @@
   padding-inline: 2rem;
 }
 .search-header__header {
+  font-family: bebas neue;
+  font-size: 2rem;
   color: white;
 }
 .contain-btn {
@@ -31,19 +33,23 @@
   padding: 2rem 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin-top: 4rem;
 }
 .card-details {
   color: white;
 }
-
+.result-card {
+  width: 13rem;
+  height: 20rem;
+}
 .no-result {
   width: 100%;
-  height: 20vh;
+  height: 40vh;
   padding: 3rem;
   color: white;
 }
 .ref {
-  /* width: 450px; */
+  margin-top: 2rem;
   color: white;
 }
 .ref-p {
@@ -64,15 +70,17 @@
 @media screen and (max-width: 425px) {
   .search_header {
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     display: flex;
     flex-direction: column;
   }
   .search-header__header {
-    font-size: 0.85rem;
+    font-family: bebas neue;
+    font-size: 1.8rem;
+    color: white;
   }
   .ref-p {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
   .no-result {
     padding: 3rem;
@@ -81,6 +89,7 @@
     display: flex;
     justify-items: center;
     align-items: center;
+    margin-top: 3rem;
   }
   .result {
     padding: 0;
@@ -103,15 +112,26 @@
   .no-result-type {
     font-size: 1rem;
   }
+  .result-card {
+    width: 10rem;
+    height: 15rem;
+  }
 }
-@media screen and (max-width: 768px) {
-  .search-header__header {
-    font-size: 0.85rem;
-  }
-  .ref-p {
-    font-size: 0.4rem;
-  }
+@media screen and (min-width: 768px) {
   .no-result-type {
     font-size: 1rem;
+  }
+  .result-card {
+    width: 11rem;
+    height: 17rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .result-card {
+    width: 13rem;
+    height: 20rem;
+  }
+  .search-average {
+    font-size: 0.7rem;
   }
 }

@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 #search {
-  width: 8rem;
+  width: 10rem;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 5px;
-  background-color: white;
+  background-color: #15181d;
   margin: 10px 0;
 }
 
@@ -22,6 +22,6 @@
     margin-top: 2rem;
   }
   #search {
-    width: 10rem;
+    width: 15rem;
   }
 }

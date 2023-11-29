@@ -18,7 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchChange }) => {
         type="search"
         name="search"
         id="search"
-        placeholder="search..."
+        placeholder="Search"
         onChange={handleSearch}
       />
     </div>
