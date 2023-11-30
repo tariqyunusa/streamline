@@ -28,6 +28,7 @@ const Hero = () => {
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [nextMovieIndex, setNextMovieIndex] = useState(1);
+  const [modalMovieData, setModalMovieData] = useState<Movie | null>(null);
   const newRating = trending.map(
     (movie) => Math.round(movie.vote_average * 10) / 10
   );
@@ -64,12 +65,19 @@ const Hero = () => {
 
   const openModal = () => {
     console.log("modal opened");
+    setModalMovieData(trending[currentMovieIndex]);
+
     setIsOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
     console.log("modal closed");
+  };
+  const logCurrentMovieTitle = () => {
+    if (trending.length > 0 && trending[currentMovieIndex].title) {
+      console.log("Current Movie", trending[currentMovieIndex].title);
+    }
   };
 
   return (
@@ -110,7 +118,15 @@ const Hero = () => {
             <div className="hero_btn">
               <Button title="Get Tickets" onClick={openModal} />
             </div>
-            {isOpen ? <Modal isOpen={isOpen} onClose={closeModal} /> : ""}
+            {isOpen ? (
+              <Modal
+                isOpen={isOpen}
+                onClose={closeModal}
+                movieData={modalMovieData}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ) : (
