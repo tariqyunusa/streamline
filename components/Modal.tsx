@@ -120,32 +120,32 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <h5 className="movie_genres">
-                  {getGenreTitle(movieData.genre_ids)}
-                </h5>
-                <h6>Screening Date: {movieData.release_date}</h6>
-                <div className="preference">
-                  <div className="seats">
-                    <h3 className="seats_header">Select Seat</h3>
-                    <input
-                      type="text"
-                      className="seats_input"
-                      placeholder="A1"
-                    />
+                  <h5 className="movie_genres">
+                    {getGenreTitle(movieData.genre_ids)}
+                  </h5>
+                  <h6>Screening Date: {movieData.release_date}</h6>{" "}
+                  <div className="preference">
+                    <div className="seats">
+                      <h3 className="seats_header">Select Seat</h3>
+                      <input
+                        type="text"
+                        className="seats_input"
+                        placeholder="A1"
+                      />
+                    </div>
+                    <div className="tickets">
+                      <h3 className="tickets_header">Number of tickets</h3>
+                      <select name="" id="" className="tickets_select">
+                        {numberArray.map((index) => (
+                          <option>{index}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                  <div className="tickets">
-                    <h3 className="tickets_header">Number of tickets</h3>
-                    <select name="" id="" className="tickets_select">
-                      {numberArray.map((index) => (
-                        <option>{index}</option>
-                      ))}
-                    </select>
-                  </div>
+                  <button className="ticket_buy" onClick={ticket}>
+                    Buy Ticket
+                  </button>
                 </div>
-                <button className="ticket_buy" onClick={ticket}>
-                  Buy Ticket
-                </button>
               </div>
             </div>
           )}
