@@ -9,7 +9,7 @@ import imdb from "../public/imdb.png";
 interface Movie {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: object;
+  genre_ids: [];
   id: number;
   original_language: string;
   original_title: string;
