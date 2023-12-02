@@ -16,24 +16,24 @@ const Nav = () => {
     <>
       <nav className="nav_section">
         <div className="personal_nav">
-          <div className="logo">
+          <Link href="./" className="logo">
             <h1>
               STREAM<span className="span-1">LINE</span>
             </h1>
-          </div>
+          </Link>
 
           <div ref={wrapperRef} className="wrapper">
             <ul className="nav_ul">
-              <Link href="/." className="li">
+              <Link href="/Upcoming" className="li">
                 Upcoming
               </Link>
-              <Link href="./" className="li">
+              <Link href="/Movies" className="li">
                 Movies
               </Link>
-              <Link href="./" className="li">
+              <Link href="/Events" className="li">
                 Events
               </Link>
-              <Link href="./" className="li">
+              <Link href="/Contact" className="li">
                 Contact
               </Link>
             </ul>

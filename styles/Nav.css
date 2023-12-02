@@ -36,6 +36,9 @@
   position: relative;
   /* left: -5rem; */
 }
+.logo {
+  text-decoration: none;
+}
 .nav_ul .li {
   list-style: none;
   font-size: 0.7rem;

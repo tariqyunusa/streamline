@@ -1,10 +1,8 @@
 import React from "react";
-import Image from "next/image";
-import undraw from "../public/undraw_under_construction_-46-pa.svg";
 import "../styles/Upcoming.css";
 import { Nav } from "@/components";
 
-const Upcoming = () => {
+const Events = () => {
   return (
     <div className="upcoming_wrapper">
       <Nav />
@@ -17,4 +15,4 @@ const Upcoming = () => {
   );
 };
 
-export default Upcoming;
+export default Events;
