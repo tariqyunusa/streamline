@@ -10,7 +10,7 @@
   padding: 0.5rem;
   z-index: -1;
   color: #fff;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .cards {
   width: 90%;
@@ -80,25 +80,37 @@
   .latest-p {
     font-size: 0.5rem;
   }
+
   .header-wrapper {
     width: 100%;
     margin: 0;
     padding: 0;
     padding-inline: 1rem;
+    overflow: visible;
   }
   .filters {
     width: 7rem;
   }
+  .cards_container {
+    margin: 1rem 0;
+  }
+
   .cards {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0;
-    margin-left: 0;
-    width: 95%;
-    gap: 0;
+    display: flex;
+    padding: 0.5rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .cards::-webkit-scrollbar {
+    width: 0;
+  }
+  .hr {
+    display: none;
   }
   .card {
-    width: 7rem;
+    min-width: 8rem;
     height: 12em;
+    padding: 0;
   }
   .card-date {
     font-size: 0.4rem;
@@ -107,7 +119,7 @@
     font-size: 0.8rem;
   }
   .latest-wrapper {
-    height: 90vh;
+    height: 50vh;
   }
 }
 @media screen and (min-width: 375px) {
@@ -163,7 +175,7 @@
     margin-top: 0.2rem;
   } */
   .latest-wrapper {
-    height: 90vh;
+    height: 100vh;
   }
   /* .header-wrapper {
     width: 90%;
@@ -171,9 +183,6 @@
   .card-date {
     font-size: 0.5rem;
   } */
-  .latest-wrapper {
-    height: 160vh;
-  }
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {
