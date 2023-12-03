@@ -107,6 +107,7 @@
   display: flex;
   gap: 0.5rem;
 }
+
 .tickets {
   display: flex;
   gap: 0.5rem;
@@ -167,13 +168,24 @@
   .modal_content {
     flex-direction: column;
   }
+  .overview_p {
+    max-height: 32px;
+  }
+  .modal {
+    width: 80%;
+    height: 85%;
+  }
+  .movie {
+    margin-bottom: 1.5rem;
+  }
   .modal_img {
     width: 100%;
     height: 40%;
   }
   .moviedata_info {
-    height: 50%;
+    height: 65%;
     width: 100%;
+    gap: 0;
   }
   .movie_title {
     font-size: 1.5rem;
@@ -181,6 +193,7 @@
   }
   .movie_overview {
     font-size: 0.4rem;
+    line-height: 0.5rem;
   }
   .cast_li {
     width: 40px;
