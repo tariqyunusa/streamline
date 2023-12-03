@@ -1,6 +1,6 @@
 .modal {
-  width: 80%;
-  height: 80%;
+  width: 40rem;
+  height: 25rem;
   background-color: #1c2027;
   z-index: 9999;
   position: fixed;
@@ -44,17 +44,18 @@
   height: 100%;
 }
 .moviedata_info {
-  width: 50%;
+  width: 60%;
   height: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
-  gap: 2rem;
+  gap: 3rem;
 }
 .movie {
   width: 100%;
   height: 20%;
+  margin-bottom: 1rem;
 }
 .movie_title {
   font-size: 2.5rem;
@@ -62,7 +63,13 @@
   line-height: 2.5rem;
 }
 .movie_overview {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
+  line-height: 0.7rem;
+}
+.overview_p {
+  margin: 0.2rem;
+  max-height: 45px;
+  overflow: hidden;
 }
 .movie_genres {
   font-family: bebas neue;
@@ -127,6 +134,7 @@
   display: flex;
   padding: 0.2rem;
   gap: 0.7rem;
+  margin-top: 1rem;
 }
 .tickets_select {
   outline: none;
@@ -144,6 +152,11 @@
   color: white;
   border-radius: 5px;
   padding: 0.3rem 0;
+}
+.genre-Date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 @media screen and (max-width: 375px) {
   .modal_img {

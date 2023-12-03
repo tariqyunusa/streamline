@@ -115,7 +115,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
               <div className="moviedata_info">
                 <div className="movie">
                   <h2 className="movie_title">{movieData.title}</h2>
-                  <p className="movie_overview">{movieData.overview}</p>
+                  <div className="overview_p">
+                    <p className="movie_overview">{movieData.overview}</p>
+                  </div>
                 </div>
 
                 <div className="cast">
@@ -136,10 +138,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
                       </li>
                     ))}
                   </ul>
-                  <h5 className="movie_genres">
-                    {getGenreTitle(movieData.genre_ids)}
-                  </h5>
-                  <h6>Screening Date: {movieData.release_date}</h6>{" "}
+                  <div className="genre-Date">
+                    <h5 className="movie_genres">
+                      {getGenreTitle(movieData.genre_ids)}
+                    </h5>
+                    <h6>Screening Date: {movieData.release_date}</h6>
+                  </div>
                   <div className="preference">
                     <div className="seats">
                       <h3 className="seats_header">Select Seat</h3>
