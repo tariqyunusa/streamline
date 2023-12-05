@@ -1,20 +1,20 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import React from "react";
+import "../styles/Modal.css";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getGenre, getCast } from "@/utilis";
-import "../styles/Modal.css";
-import { Button } from ".";
+import { FaTimes } from "react-icons/fa";
 
-interface ModalProps {
-  isOpen: boolean;
+interface ModalProp {
+  //   isOpen: boolean;
   onClose: () => void;
-  movieData?: Movie | null;
+  selectedItem: Movie | null;
+  isModalOpen: boolean;
 }
 interface Movie {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: [];
+  genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
@@ -45,76 +45,72 @@ interface people {
   credit_id: string;
   order: number;
 }
-
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
+const Modals: React.FC<ModalProp> = ({
+  onClose,
+  selectedItem,
+  isModalOpen,
+}) => {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [cast, setCast] = useState<people[]>([]);
-
-  if (!isOpen || !movieData) {
-    return null;
-  }
-
   useEffect(() => {
     const getGenres = async () => {
       try {
         const data = await getGenre();
-        setGenres(data.genres || []);
+        setGenres(data.genres || null);
+        console.log("genre for modals", data.genres);
       } catch (error) {
-        console.error("Failed to fetch genres", error);
+        console.error("error while fetching genres", error);
       }
     };
-    const cast = async () => {
+    const Cast = async () => {
       try {
-        if (!movieData) {
-          console.error("movieData is undefined");
+        if (!selectedItem) {
+          console.error("selectedItem is undefined");
           return;
         }
-
-        const data = await getCast(movieData.id);
+        const data = await getCast(selectedItem.id);
         setCast(data.cast);
-        console.log(data.cast);
+        console.log("cast from modal(s)", data.cast);
       } catch (error) {
-        console.error("Failed to fetch cast", error);
+        console.error("Failed to fetch Cast", error);
       }
     };
-
     getGenres();
-    cast();
-  }, [movieData]);
-
+    Cast();
+  }, [selectedItem]);
+  if (!isModalOpen || !selectedItem) {
+    return null;
+  }
   const getGenreTitle = (genreIds: number[]) => {
     const movieGenres = genreIds.map((id) => {
       const genre = genres.find((g) => g.id === id);
       return genre ? genre.name : "Loading Genre";
     });
-
     return movieGenres.join(", ");
   };
   const newCast = cast.slice(0, 5);
   const numberArray = Array.from({ length: 50 }, (_, index) => index + 1);
-  // console.log(numberArray);
   const ticket = () => {
     alert("you just bought tickets");
   };
-
   return (
     <div className="mo">
-      <div className={`modal ${isOpen ? "open" : ""}`}>
+      <div className={`modal ${isModalOpen ? "open" : ""}`}>
         <div className="modal_data">
-          {movieData && (
+          {selectedItem && (
             <div className="modal_content">
               <div className="modal_img">
                 <Image
-                  src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/original${selectedItem.poster_path}`}
                   fill={true}
-                  alt={movieData.title}
+                  alt={selectedItem.title}
                 />
               </div>
               <div className="moviedata_info">
                 <div className="movie">
-                  <h2 className="movie_title">{movieData.title}</h2>
+                  <h2 className="movie_title">{selectedItem.title}</h2>
                   <div className="overview_p">
-                    <p className="movie_overview">{movieData.overview}</p>
+                    <p className="movie_overview">{selectedItem.overview}</p>
                   </div>
                 </div>
 
@@ -138,9 +134,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
                   </ul>
                   <div className="genre-Date">
                     <h5 className="movie_genres">
-                      {getGenreTitle(movieData.genre_ids)}
+                      {getGenreTitle(selectedItem.genre_ids)}
                     </h5>
-                    <h6>Screening Date: {movieData.release_date}</h6>
+                    <h6>Screening Date: {selectedItem.release_date}</h6>
                   </div>
                   <div className="preference">
                     <div className="seats">
@@ -176,4 +172,4 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, movieData }) => {
   );
 };
 
-export default Modal;
+export default Modals;

@@ -67,7 +67,7 @@
   display: flex;
   gap: 1rem;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 428px) {
   .search_header {
     width: 100%;
     height: 15vh;
@@ -76,8 +76,13 @@
   }
   .search-header__header {
     font-family: bebas neue;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: white;
+    /* margin-top: 2.5rem; */
+  }
+  .ref {
+    font-size: 1rem;
+    text-align: center;
   }
   .ref-p {
     font-size: 0.5rem;
@@ -117,13 +122,16 @@
     height: 15rem;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
   .no-result-type {
     font-size: 1rem;
   }
   .result-card {
     width: 11rem;
     height: 17rem;
+  }
+  .search-wrapper {
+    height: 50vh;
   }
 }
 @media screen and (min-width: 1024px) {

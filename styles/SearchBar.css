@@ -7,7 +7,7 @@
   width: 10rem;
   outline: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 5px;
   background-color: #15181d;
   margin: 10px 0;
@@ -17,7 +17,7 @@
   display: flex;
   gap: 0.2rem;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 428px) {
   .searchbar-wrapper {
     margin-top: 2rem;
   }

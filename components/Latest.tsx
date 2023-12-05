@@ -3,7 +3,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Latest.css";
 import { fetchTrending, getGenre } from "@/utilis";
 import Image from "next/image";
-import { Dropdown } from ".";
+import { Dropdown, Modal } from ".";
+import Modals from "./Modals";
 
 interface FetchItem {
   adult: boolean;
@@ -31,6 +32,8 @@ const Latest = () => {
   const [fetchData, setFetchData] = useState<FetchItem[]>([]);
   const [genres, setGenres] = useState<Genre[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<FetchItem | null>(null);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -55,6 +58,11 @@ const Latest = () => {
     fetchMovies();
     fetchGenres();
   }, []);
+  const openModal = (selectedItem: FetchItem) => {
+    console.log("opened modal for:", selectedItem);
+    setSelectedItem(selectedItem);
+    setIsModalOpen(true);
+  };
 
   const limitedMovies = fetchData.slice(0, 6);
 
@@ -85,8 +93,22 @@ const Latest = () => {
         <div className="cards_container">
           {filteredMovies.length > 0 ? (
             <div className="cards">
+              <Modals
+                isModalOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                selectedItem={selectedItem}
+              />
+              {/* {selectedItem && (
+                <div>
+                  <h2>{selectedItem.original_title}</h2>
+                </div>
+              )} */}
               {slicedFilteredMovies.map((item) => (
-                <div className="card" key={item.id}>
+                <div
+                  className="card"
+                  key={item.id}
+                  onClick={() => openModal(item)}
+                >
                   <div className="card-img">
                     <Image
                       src={`https://image.tmdb.org/t/p/original${item.poster_path}`}

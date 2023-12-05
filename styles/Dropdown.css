@@ -4,14 +4,13 @@
   border: none;
   font-size: 0.8rem;
   color: #181717;
-  background-color: #181717;
+  background-color: #15181d;
+  color: white;
+  width: 7rem;
 }
 .select:active {
   border: none;
   outline: none;
 }
 @media screen and (max-width: 425px) {
-  .select {
-    width: 50px;
-  }
 }

@@ -1,7 +1,7 @@
-// Dropdown.tsx
 "use client";
 import { useEffect, useState } from "react";
 import { getGenre } from "@/utilis";
+import "../styles/Dropdown.css";
 
 interface genre {
   id: number;
