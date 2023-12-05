@@ -81,7 +81,7 @@
     height: 12rem;
   }
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 430px) {
   .latest_header {
     font-size: 2rem;
     margin-top: 1rem;
@@ -142,7 +142,7 @@
     height: 150rem;
   }
 }
-@media screen and (min-width: 676px) {
+@media screen and (min-width: 600px) {
   /* .cards {
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
@@ -186,7 +186,7 @@
     margin-top: 0.2rem;
   } */
   .latest-wrapper {
-    height: 80vh;
+    height: 100vh;
   }
   /* .header-wrapper {
     width: 90%;
@@ -194,6 +194,14 @@
   .card-date {
     font-size: 0.5rem;
   } */
+}
+@media screen and(min-width: 768px) {
+  .latest-wrapper {
+    height: 100vh;
+  }
+  .card {
+    height: 16rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {

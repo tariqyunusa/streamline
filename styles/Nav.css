@@ -86,7 +86,7 @@
   font-size: 0.5rem;
   font-weight: 800;
 }
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 430px) {
   .nav_section {
     padding-inline: 0;
   }

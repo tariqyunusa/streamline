@@ -79,7 +79,7 @@ const Search = () => {
             <div className="result">
               {slicedSearch.map((movie, index) => (
                 <div className=" result-card" key={movie.id}>
-                  <div className="card-img">
+                  <div className="search-img">
                     <Image
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       fill={true}
