@@ -118,9 +118,9 @@ const Latest = () => {
                   </div>
                   <div className="card-details">
                     <h3 className="card-title">{item.original_title}</h3>
-                    <p className="card-date">
+                    {/* <p className="card-date">
                       Release Date: {item.release_date}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               ))}

@@ -25,8 +25,8 @@
 .card {
   width: 12rem;
   height: 18rem;
-
-  padding: 1.3rem 0.8rem;
+  margin-top: 1rem;
+  /* padding: 1.3rem 0.8rem; */
   overflow: hidden;
   cursor: pointer;
 }
@@ -197,7 +197,7 @@
 }
 @media screen and(min-width: 768px) {
   .latest-wrapper {
-    height: 100vh;
+    height: 90vh;
   }
   .card {
     height: 16rem;
@@ -205,7 +205,7 @@
 }
 @media screen and (min-width: 1024px) {
   .latest-wrapper {
-    height: 150vh;
+    height: 140vh;
   }
   .cards {
     width: 94%;
@@ -223,7 +223,7 @@
   }
   .card {
     width: 13rem;
-    height: 18rem;
+    height: 20rem;
   }
   .header-wrapper {
     width: 98%;
