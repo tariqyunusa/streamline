@@ -57,7 +57,7 @@ const Modals: React.FC<ModalProp> = ({
       try {
         const data = await getGenre();
         setGenres(data.genres || null);
-        console.log("genre for modals", data.genres);
+        // console.log("genre for modals", data.genres);
       } catch (error) {
         console.error("error while fetching genres", error);
       }
@@ -70,7 +70,7 @@ const Modals: React.FC<ModalProp> = ({
         }
         const data = await getCast(selectedItem.id);
         setCast(data.cast);
-        console.log("cast from modal(s)", data.cast);
+        // console.log("cast from modal(s)", data.cast);
       } catch (error) {
         console.error("Failed to fetch Cast", error);
       }

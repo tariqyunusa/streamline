@@ -19,7 +19,7 @@ export async function fetchTrending() {
       throw new Error(`HTTP error! Status : ${response.status}`);
     }
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     throw error;
@@ -117,7 +117,7 @@ export async function getCast(movieID: number) {
       throw new Error(`"HTTP Error! Status", ${response.status}`);
     }
     const json = await response.json();
-    console.log(json);
+    // console.log(json);
     return json;
   } catch (error) {
     throw error;

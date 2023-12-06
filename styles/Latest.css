@@ -210,6 +210,7 @@
   .cards {
     width: 94%;
     padding: 0;
+    margin: 0;
   }
   .card-title {
     font-size: 1.5rem;

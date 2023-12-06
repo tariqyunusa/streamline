@@ -5,6 +5,7 @@ import { SearchBar, Button, Footer } from ".";
 import { searchFilms } from "@/utilis";
 import Image from "next/image";
 import imdb from "../public/imdb.png";
+import Modals from "./Modals";
 interface searchProp {
   adult: boolean;
   backdrop_path: string;
@@ -25,6 +26,8 @@ interface searchProp {
 const Search = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [result, setResult] = useState<searchProp[]>([]);
+  const [selectedItem, setSelectedItem] = useState<searchProp | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const newRatin = result.map((movie) => {
     // Use Math.round to round to the nearest integer
     const roundedRating = Math.round(movie.vote_average * 10) / 10;
@@ -49,6 +52,11 @@ const Search = () => {
     fetchData();
   }, [searchMovie]);
   const slicedSearch = result.slice(0, 8);
+  const openModal = (selectedItem: searchProp) => {
+    console.log("opened modal for", selectedItem);
+    setSelectedItem(selectedItem);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -77,8 +85,17 @@ const Search = () => {
             </div>
           ) : (
             <div className="result">
+              <Modals
+                isModalOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                selectedItem={selectedItem}
+              />
               {slicedSearch.map((movie, index) => (
-                <div className=" result-card" key={movie.id}>
+                <div
+                  className=" result-card"
+                  key={movie.id}
+                  onClick={() => openModal(movie)}
+                >
                   <div className="search-img">
                     <Image
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
