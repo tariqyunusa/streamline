@@ -7,6 +7,7 @@ import Dropdown from "./Dropdown";
 import Search from "./Search";
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
+import Loader from "./Loader";
 
 export {
   Hero,
@@ -18,4 +19,5 @@ export {
   Search,
   SearchBar,
   Modal,
+  Loader,
 };

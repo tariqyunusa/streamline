@@ -3,7 +3,7 @@ import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "../styles/Hero.css";
-import { Button, Modal } from ".";
+import { Button, Loader, Modal } from ".";
 import imdb from "../public/imdb.png";
 
 interface Movie {
@@ -130,7 +130,7 @@ const Hero = () => {
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <Loader />
       )}
     </div>
   );
