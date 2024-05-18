@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.releases_wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0e1014;
+    padding: 3rem;
+    /* border: 1px solid #fff */
+}
+.releases__header{
+    width: 99%;
+    /* padding: 1rem; */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.releases_h1__header{
+    font-size: 3.5rem;
+    font-family: bebas neue;
+    font-weight: 800;
+}
+.movies_container__releases{
+    width: 99%;
+    height: 90%;
+    /* background: #000; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.card{
+    width: 16rem;
+    height: 26rem;
+}
+.card__img{
+    height: 22rem;
+    width: 16rem;
+    position: relative;
+}
+.movie_details{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    margin-top: 1rem;
+}
+.movie_details__h4{
+    color: #e2e2e2;
+
+}
+.movie_details_p{
+    color: #b6b6b6;
+
+}

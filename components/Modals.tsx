@@ -65,7 +65,7 @@ const Modals: React.FC<ModalProp> = ({
     const Cast = async () => {
       try {
         if (!selectedItem) {
-          console.error("selectedItem is undefined");
+          console.log("selectedItem is undefined");
           return;
         }
         const data = await getCast(selectedItem.id);

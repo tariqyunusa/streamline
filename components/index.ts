@@ -8,6 +8,7 @@ import Search from "./Search";
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
 import Loader from "./Loader";
+import Releases from "./Releases";
 
 export {
   Hero,
@@ -20,4 +21,5 @@ export {
   SearchBar,
   Modal,
   Loader,
+  Releases
 };
