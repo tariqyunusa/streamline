@@ -50,6 +50,11 @@ const Modals: React.FC<ModalProp> = ({
   selectedItem,
   isModalOpen,
 }) => {
+
+  if (!isModalOpen || !selectedItem) {
+    return null;
+  }
+
   const [genres, setGenres] = useState<Genre[]>([]);
   const [cast, setCast] = useState<people[]>([]);
   useEffect(() => {
@@ -93,6 +98,7 @@ const Modals: React.FC<ModalProp> = ({
   const ticket = () => {
     alert("you just bought tickets");
   };
+
   return (
     <div className="mo">
       <div className={`modal ${isModalOpen ? "open" : ""}`}>

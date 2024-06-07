@@ -55,3 +55,7 @@
     color: #b6b6b6;
 
 }
+.releases__header a{
+    color: white;
+    text-decoration: none;
+}

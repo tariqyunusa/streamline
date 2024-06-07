@@ -82,16 +82,12 @@ const Releases = () => {
     <div className='releases_wrapper'>
       <header className='releases__header'>
         <h1 className='releases_h1__header'>Top Rated</h1>
-        <Link href='/'>See All</Link>
+        <Link href='/' >See All</Link>
       </header>
       <main className='movies_container__releases'>
         {topFour ? topFour?.map((movie, id) => (
           <div key={id} className='card' onClick={() => openModal(movie)}>
-            <Modals
-             isModalOpen={isModalOpen}
-             onClose={() => setIsModalOpen(false)}
-             selectedItem={selectedItem}
-            />
+            
             <div className='card__img'>
             <Image src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} fill alt={movie.title} />
             </div>
@@ -103,6 +99,13 @@ const Releases = () => {
         )): <div></div>}
 
       </main>
+       {isModalOpen && selectedItem && (
+        <Modals
+          isModalOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          selectedItem={selectedItem}
+        />
+      )}
     </div>
   )
 }
