@@ -5,6 +5,8 @@ import Image from "next/image";
 import "../styles/Hero.css";
 import { Button, Loader, Modal } from ".";
 import imdb from "../public/imdb.png";
+import { useRef, } from "react";
+import AnimateTitle from "@/app/Animations/anim";
 
 interface Movie {
   adult: boolean;
@@ -32,12 +34,15 @@ const Hero = () => {
   const newRating = trending.map(
     (movie) => Math.round(movie.vote_average * 10) / 10
   );
+  const titleRef = useRef(null)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchTrending();
         setTrending(data.results);
+
+       
       } catch (error) {
         console.error("Failed to fetch Trending Movies:", error);
       }
@@ -79,6 +84,10 @@ const Hero = () => {
       console.log("Current Movie", trending[currentMovieIndex].title);
     }
   };
+  useEffect(() => {
+    AnimateTitle(titleRef.current)
+  },[trending, currentMovieIndex])
+
 
   return (
     <div className="hero">
@@ -93,9 +102,13 @@ const Hero = () => {
           />
           <div className="info">
             <div className="title">
-              <h1 className="hero_title">
+           
+            <h1 className="hero_title" ref={titleRef}>
                 {trending[currentMovieIndex].title}
               </h1>
+            
+
+
               <div className="rating">
                 {/* <Image
                   src={imdb}

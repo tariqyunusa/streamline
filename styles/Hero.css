@@ -20,15 +20,18 @@
 .hero_image {
   filter: brightness(25%);
   z-index: -1;
+  position: relative;
 }
+
 .hero_title {
   z-index: 99;
   font-size: 3rem;
   letter-spacing: 0.5px;
   margin-bottom: 0.2rem;
-
+  position: relative;
   font-family: "bebas neue", sans-serif;
-  transition: 1s;
+  display: inline-block;
+
 }
 .voter_average_rating {
   padding-left: 2px;
