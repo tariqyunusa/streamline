@@ -35,7 +35,7 @@ const Hero = () => {
     (movie) => Math.round(movie.vote_average * 10) / 10
   );
   const titleRef = useRef(null)
-
+  const imgRef = useRef(null)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,7 +55,7 @@ const Hero = () => {
       setCurrentMovieIndex((prevIndex) =>
         prevIndex === trending.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [trending]);
@@ -85,7 +85,7 @@ const Hero = () => {
     }
   };
   useEffect(() => {
-    AnimateTitle(titleRef.current)
+    AnimateTitle(titleRef.current, imgRef.current)
   },[trending, currentMovieIndex])
 
 
@@ -98,6 +98,7 @@ const Hero = () => {
             alt={trending[currentMovieIndex].title}
             fill={true}
             className="hero_image"
+            ref={imgRef}
             // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="info">
