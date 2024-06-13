@@ -24,14 +24,16 @@
 }
 
 .hero_title {
-  z-index: 99;
+
   font-size: 3rem;
   letter-spacing: 0.5px;
   margin-bottom: 0.2rem;
-  position: relative;
   font-family: "bebas neue", sans-serif;
   display: inline-block;
-
+  overflow: hidden;
+}
+.hero_title span {
+  display: inline-block;
 }
 .voter_average_rating {
   padding-left: 2px;
