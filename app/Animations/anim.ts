@@ -21,7 +21,7 @@ const AnimateTitle = (element : any, img: any ) => {
    const tl = gsap.timeline()
 
     tl.set(words, { clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)' })
-    tl.from(img, {xPercent: 100, duration:1, ease: 'power1.in',})
+    // tl.from(img, {xPercent: 100, duration:1, ease: 'power1.in',})
     .fromTo(words,{
       yPercent: 100 
     },{
@@ -32,6 +32,18 @@ const AnimateTitle = (element : any, img: any ) => {
      //  delay: 1,
       duration: 1
     })
+    .fromTo(img, {
+      clipPath: 'circle(20.5% at 87% 86%)',
+    
+
+    },{
+      duration: 0.5,
+      ease: 'power2.inOut',
+      
+      clipPath: 'circle(141.4% at 100% 100%)'
+    }
+    )
+
   //  gsap.from(chars, {
   //   yPercent: 100,
   //   stagger: 0.02,

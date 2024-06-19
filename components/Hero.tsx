@@ -59,14 +59,7 @@ const Hero = () => {
 
     return () => clearInterval(intervalId);
   }, [trending]);
-  useEffect(() => {
-    const nexInterval = setInterval(() => {
-      setNextMovieIndex((prev) =>
-        prev === trending.length - 1 ? 0 : prev + 2
-      );
-    }, 3000);
-    return () => clearInterval(nexInterval);
-  }, [trending]);
+  
 
   const openModal = () => {
     console.log("modal opened");
@@ -79,11 +72,7 @@ const Hero = () => {
     setIsOpen(false);
     console.log("modal closed");
   };
-  const logCurrentMovieTitle = () => {
-    if (trending.length > 0 && trending[currentMovieIndex].title) {
-      console.log("Current Movie", trending[currentMovieIndex].title);
-    }
-  };
+ 
   useEffect(() => {
     AnimateTitle(titleRef.current, imgRef.current)
   },[trending, currentMovieIndex])
@@ -93,15 +82,21 @@ const Hero = () => {
     <div className="hero">
       {trending.length > 0 && trending[currentMovieIndex] ? (
         <div className="hero_container">
-          <Image
-            src={`https://image.tmdb.org/t/p/original${trending[currentMovieIndex].poster_path}`}
-            alt={trending[currentMovieIndex].title}
-            fill={true}
-            className="hero_image"
-            ref={imgRef}
-            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-          <div className="info">
+        <div className="hero_img__container">
+        {trending?.map((movie, idx) => (
+           <Image
+           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+           alt={trending[currentMovieIndex].title}
+           fill={true}
+           className={`hero_image ${
+            currentMovieIndex === idx ? "visible" : "hidden"
+          }`}
+           ref={currentMovieIndex === idx ? imgRef : null}
+           key={idx}
+           // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+         />
+        ))}
+        <div className="info">
             <div className="title">
            
             <h1 className="hero_title" ref={titleRef}>
@@ -111,22 +106,9 @@ const Hero = () => {
 
 
               <div className="rating">
-                {/* <Image
-                  src={imdb}
-                  width={35}
-                  height={25}
-                  alt="icon"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority={true}
-                /> */}
-
-                <h4>
-                  {" "}
-                  TMDB RATING:
-                  <span className="voter_average_rating">
-                    {newRating[currentMovieIndex]}
-                  </span>
-                </h4>
+                <p>
+                {trending[currentMovieIndex].overview}
+                </p>
               </div>
             </div>
             <div className="hero_btn">
@@ -142,6 +124,8 @@ const Hero = () => {
               ""
             )}
           </div>
+        </div>
+          
         </div>
       ) : (
         <Loader />

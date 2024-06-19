@@ -13,18 +13,37 @@
 .hero_container {
   width: 100vw;
   height: 100%;
+  /* display: flex;
+  align-items: center; */
+  /* position: relative; */
+}
+.hero_img__container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  /* position: relative; */
 }
 .hero_image {
   filter: brightness(25%);
   z-index: -1;
   position: relative;
+  
+}
+.hero_image.visible {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero_image.hidden {
+  opacity: 0;
+  z-index: 0;
 }
 
 .hero_title {
-
+  /* -webkit-text-stroke: 0.01px #fff;
+  -webkit-text-fill-color: transparent; */
   font-size: 3rem;
   letter-spacing: 0.5px;
   margin-bottom: 0.2rem;
@@ -42,15 +61,20 @@
 }
 .rating {
   display: flex;
-  font-family: "bebas neue", sans-serif;
+ 
+}
+.rating p{
+  font-family: manrope;
+  font-size: 1rem;
 }
 .info {
   width: 70vw;
   height: 50vh;
   padding: 3rem;
   color: white;
-
+  z-index: 99;
   flex-wrap: wrap;
+  position: relative;
 }
 .hero_about {
   margin-bottom: 1rem;
