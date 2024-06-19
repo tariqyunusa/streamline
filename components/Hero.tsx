@@ -83,19 +83,18 @@ const Hero = () => {
       {trending.length > 0 && trending[currentMovieIndex] ? (
         <div className="hero_container">
         <div className="hero_img__container">
-        {trending?.map((movie, idx) => (
-           <Image
-           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-           alt={trending[currentMovieIndex].title}
-           fill={true}
-           className={`hero_image ${
-            currentMovieIndex === idx ? "visible" : "hidden"
-          }`}
-           ref={currentMovieIndex === idx ? imgRef : null}
-           key={idx}
-           // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-         />
-        ))}
+        {trending.map((movie, idx) => (
+              <Image
+                key={movie.id}
+                src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                alt={movie.title}
+                fill={true}
+                className={`hero_image ${
+                  currentMovieIndex === idx ? "visible" : ""
+                }`}
+                ref={currentMovieIndex === idx ? imgRef : null}
+              />
+            ))}
         <div className="info">
             <div className="title">
            
