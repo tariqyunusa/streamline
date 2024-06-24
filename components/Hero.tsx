@@ -2,11 +2,10 @@
 import { fetchTrending } from "@/utilis";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import "../styles/Hero.css";
+import styles from '../styles/Hero.module.css'
 import { Button, Loader, Modal } from ".";
-import imdb from "../public/imdb.png";
 import { useRef, } from "react";
-import AnimateTitle from "@/app/Animations/anim";
+import AnimateTitle from "../utilis/Animations/anim"
 
 interface Movie {
   adult: boolean;
@@ -29,11 +28,8 @@ const Hero = () => {
   const [trending, setTrending] = useState<Movie[]>([]);
   const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const [nextMovieIndex, setNextMovieIndex] = useState(1);
+  const [previousMovieIndex, setPreviousMovieIndex] = useState<number | null>(null);
   const [modalMovieData, setModalMovieData] = useState<Movie | null>(null);
-  const newRating = trending.map(
-    (movie) => Math.round(movie.vote_average * 10) / 10
-  );
   const titleRef = useRef(null)
   const imgRef = useRef(null)
   useEffect(() => {
@@ -41,8 +37,6 @@ const Hero = () => {
       try {
         const data = await fetchTrending();
         setTrending(data.results);
-
-       
       } catch (error) {
         console.error("Failed to fetch Trending Movies:", error);
       }
@@ -74,43 +68,43 @@ const Hero = () => {
   };
  
   useEffect(() => {
-    AnimateTitle(titleRef.current, imgRef.current)
+    AnimateTitle(imgRef.current)
   },[trending, currentMovieIndex])
 
 
   return (
-    <div className="hero">
+    <div className={styles.hero}>
       {trending.length > 0 && trending[currentMovieIndex] ? (
-        <div className="hero_container">
-        <div className="hero_img__container">
+        <div className={styles.hero_container}>
+        <div className={styles.hero_img__container}>
         {trending.map((movie, idx) => (
               <Image
                 key={movie.id}
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                 alt={movie.title}
                 fill={true}
-                className={`hero_image ${
-                  currentMovieIndex === idx ? "visible" : ""
+                className={`${styles.hero_image} ${
+                  currentMovieIndex === idx ? styles.visible : previousMovieIndex === idx ? styles.previous : ""
                 }`}
                 ref={currentMovieIndex === idx ? imgRef : null}
               />
             ))}
-        <div className="info">
-            <div className="title">
+        <div className={styles.info}>
+            <div className={styles.title}>
            
-            <h1 className="hero_title" ref={titleRef}>
+            <h1 className={styles.hero_title} ref={titleRef}>
                 {trending[currentMovieIndex].title}
               </h1>
             
 
 
-              <div className="rating">
+              <div className={styles.rating}>
                 <p>
                 {trending[currentMovieIndex].overview}
                 </p>
               </div>
             </div>
-            <div className="hero_btn">
+            <div className={styles.hero_btn}>
               <Button title="Get Tickets" onClick={openModal} />
             </div>
             {isOpen ? (

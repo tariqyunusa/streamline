@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getGenre } from "@/utilis";
-import "../styles/Dropdown.css";
+import styles from  '../styles/Dropdown.module.css'
 
 interface genre {
   id: number;
@@ -44,7 +44,7 @@ const Dropdown: React.FC<DropdownProps> = ({ onChange }) => {
     <select
       name="Select Genre"
       id=""
-      className="select"
+      className={styles.select}
       onChange={handleGenreChange}
     >
       {genres ? (

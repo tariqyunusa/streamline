@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Modal.css";
+import styles from '../styles/Modal.module.css'
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getGenre, getCast } from "@/utilis";
@@ -100,76 +100,76 @@ const Modals: React.FC<ModalProp> = ({
   };
 
   return (
-    <div className="mo">
-      <div className={`modal ${isModalOpen ? "open" : ""}`}>
-        <div className="modal_data">
+    <div className={styles.mo}>
+      <div className={`${styles.modal} ${isModalOpen ? styles.open : ""}`}>
+        <div className={styles.modal_data}>
           {selectedItem && (
-            <div className="modal_content">
-              <div className="modal_img">
+            <div className={styles.modal_content}>
+              <div className={styles.modal_img}>
                 <Image
                   src={`https://image.tmdb.org/t/p/original${selectedItem.poster_path}`}
                   fill={true}
                   alt={selectedItem.title}
                 />
               </div>
-              <div className="moviedata_info">
-                <div className="movie">
-                  <h2 className="movie_title">{selectedItem.title}</h2>
-                  <div className="overview_p">
-                    <p className="movie_overview">{selectedItem.overview}</p>
+              <div className={styles.moviedata_info}>
+                <div className={styles.movie}>
+                  <h2 className={styles.movie_title}>{selectedItem.title}</h2>
+                  <div className={styles.overview_p}>
+                    <p className={styles.movie_overview}>{selectedItem.overview}</p>
                   </div>
                 </div>
 
-                <div className="cast">
-                  <h3 className="cast_header">Cast</h3>
-                  <ul className="cast_ul">
+                <div className={styles.cast}>
+                  <h3 className={styles.cast_header}>Cast</h3>
+                  <ul className={styles.cast_ul}>
                     {newCast.map((actor) => (
-                      <li className="cast_li" key={actor.id}>
-                        <div className="actor_info">
-                          <div className="cast_img">
+                      <li className={styles.cast_li} key={actor.id}>
+                        <div className={styles.actor_info}>
+                          <div className={styles.cast_img}>
                             <Image
                               src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
                               fill={true}
                               alt={actor.name}
                             />
                           </div>
-                          <p className="cast_name">{actor.name}</p>
+                          <p className={styles.cast_name}>{actor.name}</p>
                         </div>
                       </li>
                     ))}
                   </ul>
-                  <div className="genre-Date">
-                    <h5 className="movie_genres">
+                  <div className={styles.genre_Date}>
+                    <h5 className={styles.movie_genres}>
                       {getGenreTitle(selectedItem.genre_ids)}
                     </h5>
                     <h6>Screening Date: {selectedItem.release_date}</h6>
                   </div>
-                  <div className="preference">
-                    <div className="seats">
-                      <h3 className="seats_header">Select Seat</h3>
+                  <div className={styles.preference}>
+                    <div className={styles.seats}>
+                      <h3 className={styles.seats_header}>Select Seat</h3>
                       <input
                         type="text"
-                        className="seats_input"
+                        className={styles.seats_input}
                         placeholder="A1"
                       />
                     </div>
-                    <div className="tickets">
-                      <h3 className="tickets_header">Number of tickets</h3>
-                      <select name="" id="" className="tickets_select">
+                    <div className={styles.tickets}>
+                      <h3 className={styles.tickets_header}>Number of tickets</h3>
+                      <select name="" id="" className={styles.tickets_select}>
                         {numberArray.map((index) => (
                           <option>{index}</option>
                         ))}
                       </select>
                     </div>
                   </div>
-                  <button className="ticket_buy" onClick={ticket}>
+                  <button className={styles.ticket_buy} onClick={ticket}>
                     Buy Ticket
                   </button>
                 </div>
               </div>
             </div>
           )}
-          <button onClick={onClose} className="close_btn">
+          <button onClick={onClose} className={styles.close_btn}>
             <FaTimes />
           </button>
         </div>

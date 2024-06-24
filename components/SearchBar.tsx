@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/SearchBar.css";
+import styles from '../styles/SearchBar.module.css'
 
 interface SearchBarProps {
   onSearchChange: (value: string) => void;
@@ -13,11 +13,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchChange }) => {
   };
 
   return (
-    <div className="searchbar-wrapper">
+    <div className="searchbar_wrapper">
       <input
         type="search"
         name="search"
-        id="search"
+        id={styles.search}
         placeholder="Search"
         onChange={handleSearch}
       />

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "../styles/Latest.css";
+import styles from "../styles/Latest.module.css"
 import { fetchTrending, getGenre } from "@/utilis";
 import Image from "next/image";
 import { Dropdown, Modal } from ".";
@@ -78,21 +78,21 @@ const Latest = () => {
 
   return (
     <>
-      <div className="latest-wrapper">
-        <div className="header-wrapper">
+      <div className={styles.latest_wrapper}>
+        <div className={styles.header_wrapper}>
           <div>
-            <h1 className="latest_header">New Features</h1>
-            <p className="latest-p">
+            <h1 className={styles.latest_header}>New Features</h1>
+            <p className={styles.latest_p}>
               Displaying random movies until you select a genre
             </p>
           </div>
-          <div className="filters">
+          <div className={styles.filters}>
             <Dropdown onChange={handleDropdownChange} />
           </div>
         </div>
-        <div className="cards_container">
+        <div className={styles.cards_container}>
           {filteredMovies.length > 0 ? (
-            <div className="cards">
+            <div className={styles.cards}>
               <Modals
                 isModalOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
@@ -105,19 +105,19 @@ const Latest = () => {
               )} */}
               {slicedFilteredMovies.map((item) => (
                 <div
-                  className="card"
+                  className={styles.card}
                   key={item.id}
                   onClick={() => openModal(item)}
                 >
-                  <div className="card-img">
+                  <div className={styles.card_img}>
                     <Image
                       src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
                       fill={true}
                       alt={item.title}
                     />
                   </div>
-                  <div className="card-details">
-                    <h3 className="card-title">{item.original_title}</h3>
+                  <div className={styles.card_details}>
+                    <h3 className={styles.card_title}>{item.original_title}</h3>
                     {/* <p className="card-date">
                       Release Date: {item.release_date}
                     </p> */}
@@ -126,7 +126,7 @@ const Latest = () => {
               ))}
             </div>
           ) : (
-            <div className="latest_paragraph">
+            <div className={styles.latest_paragraph}>
               {selectedGenre
                 ? "No movies for the selected Genre this week."
                 : "Displaying limited movies for this week."}
@@ -134,7 +134,7 @@ const Latest = () => {
           )}
         </div>
 
-        <hr className="hr" />
+        <hr className={styles.hr} />
       </div>
     </>
   );

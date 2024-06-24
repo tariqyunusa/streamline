@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { ImSearch } from "react-icons/im";
 import { Button } from ".";
-import "../styles/Nav.css";
+import styles from '../styles/Nav.module.css'
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 
@@ -10,48 +10,48 @@ const Nav = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const showBar = () => {
-    wrapperRef.current?.classList.toggle("toggle-menu");
+    wrapperRef.current?.classList.toggle(`${styles.toggle_menu}`);
   };
   return (
     <>
-      <nav className="nav_section">
-        <div className="personal_nav">
-          <Link href="./" className="logo">
+      <nav className={styles.nav_section}>
+        <div className={styles.personal_nav}>
+          <Link href="./" className={styles.logo}>
             <h1>
-              STREAM<span className="span-1">LINE</span>
+              STREAM<span className={styles.span_1}>LINE</span>
             </h1>
           </Link>
 
-          <div ref={wrapperRef} className="wrapper">
-            <ul className="nav_ul">
-              <Link href="/Upcoming" className="li">
+          <div ref={wrapperRef} className={styles.wrapper}>
+            <ul className={styles.nav_ul}>
+              <Link href="/Upcoming" className={styles.li}>
                 Upcoming
               </Link>
-              <Link href="/Movies" className="li">
+              <Link href="/Movies" className={styles.li}>
                 Movies
               </Link>
-              <Link href="/Events" className="li">
+              <Link href="/Events" className={styles.li}>
                 Events
               </Link>
-              <Link href="/Contact" className="li">
+              <Link href="/Contact" className={styles.li}>
                 Contact
               </Link>
             </ul>
-            <button className="btn-nav times" onClick={showBar}>
+            <button className={`${styles.btn_nav} ${styles.times}`} onClick={showBar}>
               <FaTimes />
             </button>
           </div>
-          <div className="nav-end">
-            <ul className="app_ul">
+          <div className={styles.nav_end}>
+            <ul className={styles.app_ul}>
               <li>
                 <ImSearch />
               </li>
-              <li className="lang">EN</li>
+              <li className={styles.lang}>EN</li>
               <Button title="Sign Up" />
             </ul>
           </div>
         </div>
-        <button className="btn-nav bars" onClick={showBar}>
+        <button className={`${styles.btn_nav} ${styles.bars}`} onClick={showBar}>
           <FaBars />
         </button>
       </nav>

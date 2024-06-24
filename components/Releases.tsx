@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import "../styles/Releases.css"
+import styles from '../styles/Releases.module.css'
 import Link from 'next/link'
 import { getGenre, upComing } from '@/utilis'
 import Image from 'next/image'
@@ -79,21 +79,21 @@ const Releases = () => {
   }
       
   return (
-    <div className='releases_wrapper'>
-      <header className='releases__header'>
-        <h1 className='releases_h1__header'>Top Rated</h1>
+    <div className={styles.releases_wrapper}>
+      <header className={styles.releases__header}>
+        <h1 className={styles.releases_h1__header}>Top Rated</h1>
         <Link href='/' >See All</Link>
       </header>
-      <main className='movies_container__releases'>
+      <main className={styles.movies_container__releases}>
         {topFour ? topFour?.map((movie, id) => (
-          <div key={id} className='card' onClick={() => openModal(movie)}>
+          <div key={id} className={styles.card} onClick={() => openModal(movie)}>
             
-            <div className='card__img'>
+            <div className={styles.card__img}>
             <Image src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} fill alt={movie.title} />
             </div>
-            <div className='movie_details'>
-              <h4 className='movie_details__h4'>{movie.title}</h4>
-              <p className='movie_details_p'>{getGenreName(movie.genre_ids[0])}</p>
+            <div className={styles.movie_details}>
+              <h4 className={styles.movie_details__h4}>{movie.title}</h4>
+              <p className={styles.movie_details_p}>{getGenreName(movie.genre_ids[0])}</p>
             </div>
           </div>
         )): <div></div>}

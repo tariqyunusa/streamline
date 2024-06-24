@@ -1,14 +1,17 @@
 "use client";
-
+import React from 'react'
 import { Hero, Latest, Search, Releases } from "@/components";
 
-export default function Home() {
+
+const Home = () => {
   return (
-    <main className="overflow-hidden">
-      <Hero />
+    <>
+       <Hero />
       <Latest />
       <Releases />
       <Search />
-    </main>
-  );
+    </>
+  )
 }
+
+export default Home

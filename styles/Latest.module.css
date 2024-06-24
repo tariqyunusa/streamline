@@ -1,9 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.latest-wrapper {
+
+.latest_wrapper {
   width: 100vw;
   height: 200vh;
   background-color: #0e1014;
@@ -30,7 +26,7 @@
   overflow: hidden;
   cursor: pointer;
 }
-.card-img {
+.card_img {
   width: 100%;
   height: 90%;
   position: relative;
@@ -41,7 +37,7 @@
 .latest_header {
   font-family: bebas neue;
 }
-.card-title {
+.card_title {
   font-family: bebas neue;
   font-size: 16px;
   white-space: nowrap;
@@ -49,10 +45,10 @@
   text-overflow: ellipsis;
   margin-top: 0.3rem;
 }
-.card-date {
+.card_date {
   font-size: 10px;
 }
-.header-wrapper {
+.header_wrapper {
   width: 94%;
   height: 10vh;
   margin: 2rem 1rem;
@@ -86,11 +82,11 @@
     font-size: 2rem;
     margin-top: 1rem;
   }
-  .latest-p {
+  .latest_p {
     font-size: 0.5rem;
   }
 
-  .header-wrapper {
+  .header_wrapper {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -121,13 +117,13 @@
     height: 12em;
     padding: 0;
   }
-  .card-date {
+  .card_date {
     font-size: 0.4rem;
   }
-  .card-title {
+  .card_title {
     font-size: 0.8rem;
   }
-  .latest-wrapper {
+  .latest_wrapper {
     height: 50vh;
   }
 }
@@ -138,7 +134,7 @@
   } */
 }
 @media screen and (min-width: 676px) and(orientation: landscape) {
-  .latest-wrapper {
+  .latest_wrapper {
     height: 150rem;
   }
 }
@@ -185,7 +181,7 @@
     font-size: 1.3rem;
     margin-top: 0.2rem;
   } */
-  .latest-wrapper {
+  .latest_wrapper {
     height: 100vh;
   }
   /* .header-wrapper {
@@ -196,7 +192,7 @@
   } */
 }
 @media screen and(min-width: 768px) {
-  .latest-wrapper {
+  .latest_wrapper {
     height: 90vh;
   }
   .card {
@@ -204,7 +200,7 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  .latest-wrapper {
+  .latest_wrapper {
     height: 140vh;
   }
   .cards {
@@ -212,7 +208,7 @@
     padding: 0;
     margin: 0;
   }
-  .card-title {
+  .card_title {
     font-size: 1.5rem;
   }
   .cards_container {
@@ -226,13 +222,13 @@
     width: 13rem;
     height: 20rem;
   }
-  .header-wrapper {
+  .header_wrapper {
     width: 98%;
   }
-  .card-date {
+  .card_date {
     font-size: 6px;
   }
-  .card-title {
+  .card_title {
     font-size: 1.3rem;
     margin-top: 0.2rem;
   }

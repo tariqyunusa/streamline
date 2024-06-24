@@ -1,5 +1,5 @@
 import { CustomButtonProp } from "@/types";
-import "../styles/Button.css";
+import styles from "../styles/Button.module.css";
 import React from "react";
 
 const Button = ({ title, onClick }: CustomButtonProp) => {
@@ -7,10 +7,10 @@ const Button = ({ title, onClick }: CustomButtonProp) => {
     <button
       disabled={false}
       type={"button"}
-      className={`custom-btn  btn-search`}
+      className={`${styles.custom_btn}  ${styles.btn_search}`}
       onClick={onClick}
     >
-      <span className="span_btn">{title}</span>
+      <span className={styles.span_btn}>{title}</span>
     </button>
   );
 };

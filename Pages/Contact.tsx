@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Upcoming.css";
+import "../styles/Upcoming.module.css";
 import { Nav } from "@/components";
 const Contact = () => {
   return (

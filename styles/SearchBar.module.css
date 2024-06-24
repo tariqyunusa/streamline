@@ -1,8 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 #search {
   width: 10rem;
   outline: none;
@@ -14,12 +10,12 @@
   color: white;
 }
 
-.searchbar-wrapper {
+.searchbar_wrapper {
   display: flex;
   gap: 0.2rem;
 }
 @media screen and (max-width: 430px) {
-  .searchbar-wrapper {
+  .searchbar_wrapper {
     margin-top: 2rem;
   }
   #search {

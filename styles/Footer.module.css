@@ -1,9 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.span_1 {
+  color: #ff0040;
 }
-.footer-wrapper {
+.footer_h1{
+  color: #fff;
+}
+.footer_wrapper {
   position: relative;
   padding: 2rem;
   width: 100vw;
@@ -64,7 +65,7 @@
   .footer_container {
     gap: 1rem;
   }
-  .footer-wrapper {
+  .footer_wrapper {
     flex-direction: row;
   }
   .links_header {

@@ -1,9 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.search-wrapper {
+
+.search_wrapper {
   width: 100vw;
   height: auto;
   background-color: #0e1014;
@@ -17,12 +13,12 @@
   align-items: center;
   padding-inline: 2rem;
 }
-.search-header__header {
+.search_header__header {
   font-family: bebas neue;
   font-size: 2rem;
   color: white;
 }
-.contain-btn {
+.contain_btn {
   display: flex;
   gap: 0.5rem;
 }
@@ -37,14 +33,14 @@
   gap: 1rem;
   height: auto;
 }
-.card-details {
+.card_details {
   color: white;
 }
-.result-card {
+.result_card {
   width: 13rem;
   height: 20rem;
 }
-.no-result {
+.no_result {
   width: 100%;
   height: 40vh;
   padding: 3rem;
@@ -54,15 +50,15 @@
   margin-top: 2rem;
   color: white;
 }
-.ref-p {
+.ref_p {
   font-size: 12px;
 }
-.search-rating-container {
+.search_rating_container {
   display: flex;
   align-items: center;
   gap: 0.2rem;
 }
-.imdb-fill {
+.imdb_fill {
   width: 25px;
   height: 25px;
   position: relative;
@@ -76,7 +72,7 @@
   justify-content: center;
   align-items: center;
 }
-.search-img {
+.search_img {
   width: 100%;
   height: 90%;
   position: relative;
@@ -88,23 +84,23 @@
     display: flex;
     flex-direction: column;
   }
-  .search-header__header {
+  .search_header__header {
     font-family: bebas neue;
     font-size: 1.5rem;
     color: white;
     /* margin-top: 2.5rem; */
   }
-  .search-img {
+  .search_img {
     height: 80%;
   }
   .ref {
     font-size: 1rem;
     text-align: center;
   }
-  .ref-p {
+  .ref_p {
     font-size: 0.5rem;
   }
-  .no-result {
+  .no_result {
     padding: 3rem;
     width: 80vw;
     height: auto;
@@ -120,52 +116,52 @@
     gap: 1rem;
     margin-bottom: 1rem;
   }
-  .search-title {
+  .search_title {
     font-size: 12px;
     /* margin: 0; */
   }
-  .imdb-fill {
+  .imdb_fill {
     width: 15px;
     height: 15px;
   }
-  .search-rating-container {
+  .search_rating_container {
     gap: 0.1rem;
   }
-  .search-average {
+  .search_average {
     font-size: 0.6rem;
   }
-  .no-result-type {
+  .no_result_type {
     font-size: 1rem;
   }
-  .result-card {
+  .result_card {
     margin-top: 0.5rem;
     width: 6rem;
     height: 10rem;
   }
 }
 @media screen and (min-width: 600px) {
-  .no-result-type {
+  .no_result_type {
     font-size: 1rem;
   }
   .result {
     margin-bottom: 1rem;
   }
-  .result-card {
+  .result_card {
     width: 9rem;
     height: 13rem;
     margin-top: 1rem;
   }
 
-  .search-wrapper {
+  .search_wrapper {
     height: auto;
   }
 }
 @media screen and (min-width: 1024px) {
-  .result-card {
+  .result_card {
     width: 13rem;
     height: 20rem;
   }
-  .search-average {
+  .search_average {
     font-size: 0.7rem;
   }
 }

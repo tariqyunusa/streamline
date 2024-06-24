@@ -1,8 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+
 .hero {
   width: 100vw;
   height: 100vh;
@@ -39,6 +35,11 @@
 .hero_image.hidden {
   opacity: 0;
   z-index: 0;
+}
+
+.hero_image.previous {
+  opacity: 1;
+  z-index: 1;
 }
 
 .hero_title {
@@ -81,7 +82,7 @@
   font-size: 0.8rem;
   transition: 1s;
 }
-.latest-section {
+.latest_section {
   width: 100vw;
   height: 100vh;
   position: relative;

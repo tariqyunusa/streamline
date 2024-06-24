@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "../styles/search.css";
+import styles from '../styles/search.module.css'
 import { SearchBar, Button, Footer } from ".";
 import { searchFilms } from "@/utilis";
 import Image from "next/image";
@@ -60,31 +60,31 @@ const Search = () => {
 
   return (
     <>
-      <div className="search-wrapper">
-        <div className="search_header">
-          <div className="ref">
-            <h2 className="search-header__header">
+      <div className={styles.search_wrapper}>
+        <div className={styles.search_header}>
+          <div className={styles.ref}>
+            <h2 className={styles.search_header__header}>
               Got a particular movie in mind?
             </h2>
-            <p className="ref-p">
+            <p className={styles.ref_p}>
               Search through our library and get tickets to watch your favorite
               movies
             </p>
           </div>
 
-          <div className="contain-btn">
+          <div className={styles.contain_btn}>
             <SearchBar onSearchChange={handleSearchChange} />
           </div>
         </div>
-        <div className="search_body">
+        <div className={styles.search_body}>
           {searchMovie === "" ? (
-            <div className="no-result">
-              <h1 className="no-result-type">
+            <div className={styles.no_result}>
+              <h1 className={styles.no_result_type}>
                 Search for your favourite movies
               </h1>
             </div>
           ) : (
-            <div className="result">
+            <div className={styles.result}>
               <Modals
                 isModalOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
@@ -92,23 +92,23 @@ const Search = () => {
               />
               {slicedSearch.map((movie, index) => (
                 <div
-                  className=" result-card"
+                  className={styles.result_card}
                   key={movie.id}
                   onClick={() => openModal(movie)}
                 >
-                  <div className="search-img">
+                  <div className={styles.search_img}>
                     <Image
                       src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                       fill={true}
                       alt={movie.title}
                     />
                   </div>
-                  <div className="card-details search-details">
-                    <h3 className="card-title search-title">
+                  <div className={`${styles.card_details} ${styles.search_details}`}>
+                    <h3 className={`${styles.card_title} ${styles.search_title}`}>
                       {movie.original_title}
                     </h3>
-                    <div className="search-rating-container">
-                      <div className="imdb-fill">
+                    <div className={styles.search_rating_container}>
+                      <div className={styles.imdb_fill}>
                         <Image
                           src={imdb}
                           fill={true}
@@ -118,7 +118,7 @@ const Search = () => {
                         />
                       </div>
                       <h6>:</h6>
-                      <p className="card-date search-average">
+                      <p className={`${styles.card_date} ${styles.search_average}`}>
                         {newRatin[index]}
                       </p>
                     </div>
