@@ -4,7 +4,7 @@ import styles from '../styles/search.module.css'
 import { SearchBar, Button, Footer } from ".";
 import { searchFilms } from "@/utilis";
 import Image from "next/image";
-import imdb from "../public/imdb.png";
+import imdb from "../../public/imdb.png";
 import Modals from "./Modals";
 interface searchProp {
   adult: boolean;

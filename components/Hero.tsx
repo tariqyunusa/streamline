@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from '../styles/Hero.module.css'
 import { Button, Loader, Modal } from ".";
 import { useRef, } from "react";
-import AnimateTitle from "../utilis/Animations/anim"
+import AnimateTitle from "@/utilis/Animations/anim";
 
 interface Movie {
   adult: boolean;
@@ -68,7 +68,7 @@ const Hero = () => {
   };
  
   useEffect(() => {
-    AnimateTitle(imgRef.current)
+    // AnimateTitle(imgRef.current)
   },[trending, currentMovieIndex])
 
 
